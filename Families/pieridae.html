@@ -1,36 +1,35 @@
 <style>
-  #pieridae {
-    position: relative;
-    padding-top: 30px;
-  }
+ #pieridae table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
 
-  #pieridae .meta-dates {
-    position: absolute;
-    top: 0;
-    right: 0;
-    text-align: right;
-    font-size: 13px;
-    color: #555;
-    line-height: 1.4;
-  }
+#pieridae th,
+#pieridae td {
+  padding: 4px 8px;
+  vertical-align: top;
+}
 
-  #pieridae table,
-  #pieridae thead,
-  #pieridae tbody,
-  #pieridae tr,
-  #pieridae th,
-  #pieridae td {
-    border: none !important;
-  }
+/* Column widths */
+#pieridae th:nth-child(1),
+#pieridae td:nth-child(1) {
+  width: 5%;
+  text-align: left;
+}
 
-  #pieridae table {
-    border-collapse: collapse;
-  }
+#pieridae th:nth-child(2),
+#pieridae td:nth-child(2) {
+  width: 60%;
+  text-align: left;
+}
 
-  #pieridae th,
-  #pieridae td {
-    padding: 4px 8px;
-  }
+#pieridae th:nth-child(3),
+#pieridae td:nth-child(3) {
+  width: 35%;
+  text-align: left;
+}
+
 </style>
 
 <section id="pieridae">
