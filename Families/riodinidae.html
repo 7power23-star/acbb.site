@@ -1,85 +1,306 @@
-<style>
-/* Section container */
-#riodinidae {
-  position: relative;
-  padding-top: 35px; /* space for published/updated dates */
-}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ACBB — Family: Riodinidae</title>
 
-/* Published / Updated dates (top-right) */
-#riodinidae .meta-dates {
-  position: absolute;
-  top: 0;
-  right: 0;
-  text-align: right;
-  font-size: 13px;
-  color: #444;
-  line-height: 1.4;
-}
+  <style>
+    :root{
+      --maroon:#6b0f0f;
+      --cream:#f5e6c8;
+      --paper:#ffffff;
+      --line:#b9b9b9;
+      --gold:#f0c94a;
+    }
 
-/* Section title */
-#riodinidae h2 {
-  text-align: center;
-  margin-bottom: 15px;
-}
+    *{ box-sizing:border-box; }
 
-/* Table layout */
-#riodinidae table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-}
+    body{
+      margin:0;
+      font-family:"Georgia","Times New Roman",serif;
+      background:var(--maroon);
+    }
 
-/* Table cells */
-#riodinidae th,
-#riodinidae td {
-  padding: 4px 8px;
-  vertical-align: top;
-}
+    /* ===== FIXED TOP BAR ===== */
+    .top-bar{
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:1000;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      background:var(--maroon);
+      padding:22px 28px;
+    }
 
-/* Column widths */
-#riodinidae th:nth-child(1),
-#riodinidae td:nth-child(1) {
-  width: 5%;
-  text-align: left;
-}
+    .top-left{
+      max-width:calc(100% - 340px);
+      padding-right:20px;
+    }
 
-#riodinidae th:nth-child(2),
-#riodinidae td:nth-child(2) {
-  width: 60%;
-  text-align: left;
-}
+    .site-title{
+      margin:0;
+      color:#fff;
+      font-style:italic;
+      font-weight:700;
+      font-size:38px;
+      text-align:right;
+      line-height:1.1;
+    }
 
-#riodinidae th:nth-child(3),
-#riodinidae td:nth-child(3) {
-  width: 35%;
-  text-align: left;
-}
-</style>
+    .site-subtitle{
+      margin:6px 0 0;
+      color:var(--gold);
+      font-weight:700;
+      font-size:16px;
+      text-align:right;
+    }
 
-<section id="riodinidae">
-  <div class="meta-dates">
-    <span>Published: 24 Feb 2015</span><br>
-    <span>Updated: 05 Jan 2026</span>
+    /* ===== INDEX ===== */
+    .sidebar{
+      width:320px;
+      color:#fff;
+    }
+
+    .sidebar h3{
+      margin:0 0 12px;
+      font-size:40px;
+      letter-spacing:4px;
+      text-align:right;
+    }
+
+    .nav{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .nav li{
+      margin:10px 0;
+      font-size:22px;
+      font-weight:700;
+      text-align:right;
+    }
+
+    .nav a{
+      color:#fff;
+      text-decoration:none;
+    }
+
+    .nav a:hover{
+      text-decoration:underline;
+    }
+
+    /* ===== CONTENT ===== */
+    .content{
+      padding-top:170px;
+      padding-left:30px;
+      padding-right:30px;
+      padding-bottom:40px;
+    }
+
+    .paper{
+      background:#fff;
+      padding:22px 18px 26px;
+    }
+
+    .meta-dates{
+      float:right;
+      text-align:right;
+      font-size:12px;
+      color:#444;
+      line-height:1.35;
+      margin-top:4px;
+    }
+
+    .family-title{
+      margin:14px 0 12px;
+      text-align:center;
+      font-size:20px;
+      font-weight:700;
+      clear:both;
+    }
+
+    /* ===== TABLE ===== */
+    .table-wrap{
+      width:100%;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+    }
+
+    table.family-table{
+      width:100%;
+      min-width:900px;
+      border-collapse:collapse;
+      table-layout:fixed;
+      background:#fff;
+    }
+
+    .family-table th,
+    .family-table td{
+      border:1px solid var(--line);
+      padding:6px 8px;
+      vertical-align:top;
+      font-size:14px;
+      overflow-wrap:anywhere;
+    }
+
+    .family-table th{ font-weight:700; }
+
+    .family-table th:nth-child(1),
+    .family-table td:nth-child(1){ width:8%; }
+
+    .family-table th:nth-child(2),
+    .family-table td:nth-child(2){
+      width:57%;
+      font-style:italic;
+    }
+
+    .family-table th:nth-child(3),
+    .family-table td:nth-child(3){ width:35%; }
+
+    /* ===== FOOTER ===== */
+    .footer-nav{
+      background:var(--maroon);
+      color:var(--cream);
+      text-align:center;
+      padding:26px 10px 20px;
+      margin-top:40px;
+    }
+
+    .footer-line{
+      border-top:2px solid var(--cream);
+      margin:16px auto;
+      max-width:90%;
+    }
+
+    .footer-links{
+      display:flex;
+      justify-content:center;
+      gap:60px;
+      font-size:24px;
+      font-weight:600;
+    }
+
+    .footer-links a{
+      color:var(--cream);
+      text-decoration:none;
+    }
+
+    .footer-links a:hover{
+      text-decoration:underline;
+    }
+
+    .footer-text{
+      margin-top:12px;
+      font-size:12px;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width:900px){
+      .top-bar{
+        flex-direction:column;
+      }
+      .top-left{
+        max-width:100%;
+        padding-right:0;
+      }
+      .site-title,
+      .site-subtitle{
+        text-align:left;
+      }
+      .sidebar{
+        width:100%;
+        margin-top:18px;
+      }
+      .sidebar h3,
+      .nav li{
+        text-align:left;
+      }
+      .content{
+        padding-top:260px;
+        padding-left:18px;
+        padding-right:18px;
+      }
+      table.family-table{
+        min-width:720px;
+        table-layout:auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-left">
+      <h1 class="site-title">A Checklist of Butterflies of Bangladesh</h1>
+      <p class="site-subtitle">
+        An academic reference website listing butterfly species recorded in Bangladesh
+      </p>
+    </div>
+
+    <aside class="sidebar">
+      <h3>INDEX</h3>
+      <ul class="nav">
+        <li>• <a href="/Families/papilionidae.html">Papilionidae</a></li>
+        <li>• <a href="/Families/pieridae.html">Pieridae</a></li>
+        <li>• <a href="/Families/nymphalidae.html">Nymphalidae</a></li>
+        <li>• <a href="/Families/riodinidae.html">Riodinidae</a></li>
+        <li>• <a href="/Families/lycaenidae.html">Lycaenidae</a></li>
+        <li>• <a href="/Families/hesperiidae.html">Hesperiidae</a></li>
+        <li>• <a href="/index.html">Home Page</a></li>
+      </ul>
+    </aside>
   </div>
 
-  <h2>Family: Riodinidae</h2>
+  <!-- CONTENT -->
+  <main class="content">
+    <div class="paper">
+      <div class="meta-dates">
+        Published: 24 Feb 2015<br>
+        Updated: 02 Jan 2026
+      </div>
 
-  <table border="1" cellpadding="6" cellspacing="0" width="100%">
-    <thead>
-      <tr>
-        <th>SL</th>
-        <th>Scientific Name</th>
-        <th>Common Name</th>
-      </tr>
-    </thead>
-    <tbody>
+      <div class="family-title">Family: Riodinidae</div>
+
+      <div class="table-wrap">
+        <table class="family-table">
+          <thead>
+            <tr>
+              <th>SL</th>
+              <th>Scientific Name</th>
+              <th>Common Name</th>
+            </tr>
+          </thead>
+          <tbody>
       <tr><td>1</td><td><i>Abisara bifasciata</i> Moore, 1877</td><td>Double-banded Judy</td></tr>
       <tr><td>2</td><td><i>Abisara neophron</i> Hewitson, 1861</td><td>Tailed Judy</td></tr>
       <tr><td>3</td><td><i>Abisara echerius suffusa</i> Moore, 1882</td><td>Plain Puffin</td></tr>
       <tr><td>4</td><td><i>Taxila haquinus fasciata</i> Moore, 1878</td><td>Harlequin</td></tr>
       <tr><td>5</td><td><i>Zemeros flegyas flegyas</i> Cramer, 1780</td><td>Punchinello</td></tr>
-      
-    </tbody>
-  </table>
-</section>
-<a href="../index.html" class="back-home">← Back to Home</a>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-nav">
+      <div class="footer-line"></div>
+      <div class="footer-links">
+        <a href="javascript:history.back()">Back</a>
+        <a href="/Families/lycaenidae.html">Next</a>
+        <a href="/index.html">Home</a>
+      </div>
+      <div class="footer-line"></div>
+      <div class="footer-text">
+        A Checklist of Butterflies of Bangladesh. Copyright © 2015–2026 T.R. Shihan.
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
