@@ -1,0 +1,84 @@
+<style>
+/* Section container */
+#riodinidae {
+  position: relative;
+  padding-top: 35px; /* space for published/updated dates */
+}
+
+/* Published / Updated dates (top-right) */
+#riodinidae .meta-dates {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* Section title */
+#riodinidae h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Table layout */
+#riodinidae table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* Table cells */
+#riodinidae th,
+#riodinidae td {
+  padding: 4px 8px;
+  vertical-align: top;
+}
+
+/* Column widths */
+#riodinidae th:nth-child(1),
+#riodinidae td:nth-child(1) {
+  width: 5%;
+  text-align: left;
+}
+
+#riodinidae th:nth-child(2),
+#riodinidae td:nth-child(2) {
+  width: 60%;
+  text-align: left;
+}
+
+#riodinidae th:nth-child(3),
+#riodinidae td:nth-child(3) {
+  width: 35%;
+  text-align: left;
+}
+</style>
+
+<section id="riodinidae">
+  <div class="meta-dates">
+    <span>Published: 24 Feb 2015</span><br>
+    <span>Updated: 05 Jan 2026</span>
+  </div>
+
+  <h2>Family: Riodinidae</h2>
+
+  <table border="1" cellpadding="6" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>SL</th>
+        <th>Scientific Name</th>
+        <th>Common Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><i>Abisara bifasciata</i> Moore, 1877</td><td>Double-banded Judy</td></tr>
+      <tr><td>2</td><td><i>Abisara neophron</i> Hewitson, 1861</td><td>Tailed Judy</td></tr>
+      <tr><td>3</td><td><i>Abisara echerius suffusa</i> Moore, 1882</td><td>Plain Puffin</td></tr>
+      <tr><td>4</td><td><i>Taxila haquinus fasciata</i> Moore, 1878</td><td>Harlequin</td></tr>
+      <tr><td>5</td><td><i>Zemeros flegyas flegyas</i> Cramer, 1780</td><td>Punchinello</td></tr>
+      
+    </tbody>
+  </table>
+</section>
