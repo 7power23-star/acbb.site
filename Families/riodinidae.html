@@ -3,84 +3,103 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ACBB — Family: Riodinidae</title>
+  <title>Family: Riodinidae — A Checklist of Butterflies of Bangladesh</title>
 
   <style>
     :root{
-      --maroon:#6b0f0f;
-      --cream:#f5e6c8;
-      --gold:#f0c94a;
-      --paper:#ffffff;
+      --bg:#6f0d0d;          /* maroon (same as home) */
+      --accent:#ffd200;      /* yellow subtitle */
+      --white:#ffffff;
+      --text:#111;
       --line:#b9b9b9;
     }
+
     *{ box-sizing:border-box; }
 
     body{
       margin:0;
-      font-family:"Georgia","Times New Roman",serif;
-      background:var(--maroon);
+      font-family: "Georgia", "Times New Roman", serif;
+      background: var(--bg);
+      color:#fff;
     }
 
-    /* ===== TOP BAR (TITLE + INDEX SAME ROW) ===== */
-    .top-bar{
-      position:fixed;
-      top:0; left:0; right:0;
-      z-index:1000;
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      background:var(--maroon);
-      padding:22px 28px;
+    /* top header (same as home) */
+    .topbar{
+      padding: 26px 40px 16px 40px;
+      text-align:right;
     }
-
-    .top-left{
-      max-width:calc(100% - 340px);
-      padding-right:20px;
-    }
-
-    .site-title{
+    .topbar h1{
       margin:0;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 34px;
+      line-height: 1.1;
       color:#fff;
-      font-style:italic;
-      font-weight:700;
-      font-size:38px;
-      text-align:right;
-      line-height:1.1;
+    }
+    .topbar p{
+      margin:6px 0 0 0;
+      color: var(--accent);
+      font-size: 16px;
+      font-weight: 600;
     }
 
-    .site-subtitle{
-      margin:6px 0 0;
-      color:var(--gold);
-      font-weight:700;
-      font-size:16px;
-      text-align:right;
+    /* main layout: content + right index (same as home) */
+    .main{
+      display:flex;
+      gap:0;
+      align-items:stretch;
+      min-height: calc(100vh - 90px);
     }
 
-    /* ===== INDEX ===== */
+    /* white content area (left) */
+    .content{
+      flex: 1;
+      padding: 28px 40px 40px 40px;
+    }
+
+    .panel{
+      background: var(--white);
+      color: var(--text);
+      min-height: 520px;
+      padding: 30px 40px;
+    }
+
+    /* right sidebar index (same as home) */
     .sidebar{
-      width:320px;
+      width: 340px;
+      padding: 42px 30px;
       color:#fff;
     }
 
-    .sidebar h3{
-      margin:0 0 12px;
-      font-size:40px;
-      letter-spacing:4px;
-      text-align:right;
+    .sidebar h2{
+      margin: 24px 0 20px 0;
+      text-align:center;
+      font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      letter-spacing: 3px;
+      font-size: 28px;
+      font-weight: 900;
     }
 
     .nav{
-      list-style:none;
-      padding:0;
-      margin:0;
+      list-style: none;
+      margin: 0;
+      padding: 0 0 0 12px;
+      font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.45;
+      font-weight: 500;
     }
 
     .nav li{
-      margin:10px 0;
-      font-size:22px;
-      font-weight:700;
-      text-align:right;
-      white-space:nowrap;
+      display:flex;
+      gap: 10px;
+      align-items:baseline;
+    }
+    .nav li::before{
+      content:"·";
+      font-size: 18px;
+      line-height: 1;
+      opacity: .9;
     }
 
     .nav a{
@@ -90,156 +109,146 @@
     .nav a:hover{
       text-decoration:underline;
     }
+
+    /* highlight current page in index */
     .nav a.active{
-      color:var(--gold);
-      text-decoration:underline;
+      color: var(--accent);
+      text-decoration: underline;
+      font-weight: 700;
     }
 
-    /* ===== CONTENT ===== */
-    .content{
-      padding-top:170px;  /* space for fixed top-bar */
-      padding-left:30px;
-      padding-right:30px;
-      padding-bottom:40px;
-    }
+    /* ===== FAMILY PAGE CONTENT (inside white panel) ===== */
 
-    .paper{
-      background:var(--paper);
-      padding:22px 18px 26px;
-    }
-
+    /* dates (top-right inside panel) */
     .meta-dates{
-      float:right;
-      text-align:right;
-      font-size:12px;
-      color:#444;
-      line-height:1.35;
-      margin-top:4px;
+      float: right;
+      text-align: right;
+      font-size: 13px;
+      color: #444;
+      line-height: 1.4;
+      font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      font-weight: 700;
     }
 
     .family-title{
-      margin:14px 0 12px;
-      text-align:center;
-      font-size:20px;
-      font-weight:700;
-      clear:both;
+      text-align: center;
+      font-weight: 700;
+      font-size: 20px;
+      margin: 10px 0 16px 0;
+      clear: both;
     }
 
-    /* ===== TABLE (mobile safe) ===== */
+    /* mobile-safe table */
     .table-wrap{
-      width:100%;
-      overflow-x:auto;
-      -webkit-overflow-scrolling:touch;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     table.family-table{
-      width:100%;
-      min-width:900px;
-      border-collapse:collapse;
-      table-layout:fixed;
-      background:#fff;
+      width: 100%;
+      min-width: 900px;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #fff;
+      color: #111;
     }
 
     .family-table th,
     .family-table td{
-      border:1px solid var(--line);
-      padding:6px 8px;
-      vertical-align:top;
-      font-size:14px;
-      overflow-wrap:anywhere;
+      border: 1px solid var(--line);
+      padding: 6px 8px;
+      vertical-align: top;
+      font-size: 14px;
+      overflow-wrap: anywhere;
     }
 
-    .family-table th{ font-weight:700; }
+    .family-table th{
+      font-weight: 700;
+      font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      font-size: 13px;
+    }
 
+    /* column widths */
     .family-table th:nth-child(1),
-    .family-table td:nth-child(1){ width:8%; text-align:left; }
+    .family-table td:nth-child(1){ width: 8%; text-align:left; }
 
     .family-table th:nth-child(2),
-    .family-table td:nth-child(2){ width:57%; text-align:left; }
+    .family-table td:nth-child(2){ width: 57%; text-align:left; }
 
     .family-table th:nth-child(3),
-    .family-table td:nth-child(3){ width:35%; text-align:left; }
+    .family-table td:nth-child(3){ width: 35%; text-align:left; }
 
-    /* ===== MOBILE ===== */
-    @media (max-width:900px){
-      .top-bar{ flex-direction:column; }
-      .top-left{ max-width:100%; padding-right:0; }
-      .site-title,.site-subtitle{ text-align:left; }
+    /* make scientific names italic */
+    .family-table td:nth-child(2){
+      font-style: italic;
+    }
 
-      .sidebar{ width:100%; margin-top:18px; }
-      .sidebar h3,.nav li{ text-align:left; }
-
-      .content{
-        padding-top:260px;
-        padding-left:18px;
-        padding-right:18px;
-      }
-
-      table.family-table{
-        min-width:720px;
-        table-layout:auto;
-      }
+    /* stack on small screens (same as home) */
+    @media (max-width: 980px){
+      .main{ flex-direction:column; }
+      .sidebar{ width:auto; }
+      .topbar{ text-align:left; }
+      table.family-table{ min-width: 720px; table-layout:auto; }
     }
   </style>
 </head>
 
 <body>
+  <header class="topbar">
+    <h1>A Checklist of Butterflies of Bangladesh</h1>
+    <p>An academic reference website listing butterfly species recorded in Bangladesh</p>
+  </header>
 
-  <!-- TOP BAR -->
-  <div class="top-bar">
-    <div class="top-left">
-      <h1 class="site-title">A Checklist of Butterflies of Bangladesh</h1>
-      <p class="site-subtitle">
-        An academic reference website listing butterfly species recorded in Bangladesh
-      </p>
-    </div>
+  <div class="main">
+    <!-- LEFT: WHITE CONTENT BOX -->
+    <section class="content">
+      <div class="panel">
+        <div class="meta-dates">
+          Published: 24 Feb 2015<br>
+          Updated: 05 Jan 2026
+        </div>
 
+        <div class="family-title">Family: Riodinidae</div>
+
+        <div class="table-wrap">
+          <table class="family-table">
+            <thead>
+              <tr>
+                <th>SL</th>
+                <th>Scientific Name</th>
+                <th>Common Name</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr><td>1</td><td>Abisara bifasciata Moore, 1877</td><td>Double-banded Judy</td></tr>
+              <tr><td>2</td><td>Abisara neophron Hewitson, 1861</td><td>Tailed Judy</td></tr>
+              <tr><td>3</td><td>Abisara echerius suffusa Moore, 1882</td><td>Plum Judy</td></tr>
+              <tr><td>4</td><td>Taxila haquinus fasciata Moore, 1878</td><td>Harlequin</td></tr>
+              <tr><td>5</td><td>Zemeros flegyas flegyas Cramer, 1780</td><td>Punchinello</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT: INDEX MENU (same as home) -->
     <aside class="sidebar">
-      <h3>INDEX</h3>
+      <h2>INDEX</h2>
       <ul class="nav">
-        <li>· <a href="/Families/papilionidae.html">Papilionidae</a></li>
-        <li>· <a href="/Families/pieridae.html">Pieridae</a></li>
-        <li>· <a href="/Families/nymphalidae.html">Nymphalidae</a></li>
-        <li>· <a class="active" href="/Families/riodinidae.html">Riodinidae</a></li>
-        <li>· <a href="/Families/lycaenidae.html">Lycaenidae</a></li>
-        <li>· <a href="/Families/hesperiidae.html">Hesperiidae</a></li>
-        <li>· <a href="/checklist.html">Checklist</a></li>
-        <li>· <a href="/pdf2015.html">PDF 2015</a></li>
-        <li>· <a href="/index.html">Home Page</a></li>
+        <li><a href="../Families/papilionidae.html">Papilionidae</a></li>
+        <li><a href="../Families/pieridae.html">Pieridae</a></li>
+        <li><a href="../Families/nymphalidae.html">Nymphalidae</a></li>
+        <li><a class="active" href="../Families/riodinidae.html">Riodinidae</a></li>
+        <li><a href="../Families/lycaenidae.html">Lycaenidae</a></li>
+        <li><a href="../Families/hesperiidae.html">Hesperiidae</a></li>
+
+        <li><a href="../complete%20checklist.html">Checklist</a></li>
+        <li><a href="../butterflies-of-bangladesh-checklist.pdf">PDF 2015</a></li>
+        <li><a href="../index.html">Home Page</a></li>
       </ul>
     </aside>
   </div>
-
-  <!-- CONTENT -->
-  <main class="content">
-    <div class="paper">
-      <div class="meta-dates">
-        Published: 24 Feb 2015<br>
-        Updated: 05 Jan 2026
-      </div>
-
-      <div class="family-title">Family: Riodinidae</div>
-
-      <div class="table-wrap">
-        <table class="family-table">
-          <thead>
-            <tr>
-              <th>SL</th>
-              <th>Scientific Name</th>
-              <th>Common Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>1</td><td><i>Abisara bifasciata</i> Moore, 1877</td><td>Double-banded Judy</td></tr>
-            <tr><td>2</td><td><i>Abisara neophron</i> Hewitson, 1861</td><td>Tailed Judy</td></tr>
-            <tr><td>3</td><td><i>Abisara echerius suffusa</i> Moore, 1882</td><td>Plain Puffin</td></tr>
-            <tr><td>4</td><td><i>Taxila haquinus fasciata</i> Moore, 1878</td><td>Harlequin</td></tr>
-            <tr><td>5</td><td><i>Zemeros flegyas flegyas</i> Cramer, 1780</td><td>Punchinello</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </main>
-
 </body>
 </html>
