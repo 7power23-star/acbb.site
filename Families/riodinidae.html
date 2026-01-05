@@ -9,11 +9,10 @@
     :root{
       --maroon:#6b0f0f;
       --cream:#f5e6c8;
+      --gold:#f0c94a;
       --paper:#ffffff;
       --line:#b9b9b9;
-      --gold:#f0c94a;
     }
-
     *{ box-sizing:border-box; }
 
     body{
@@ -22,7 +21,7 @@
       background:var(--maroon);
     }
 
-    /* ===== FIXED TOP BAR ===== */
+    /* ===== TOP BAR (TITLE + INDEX SAME ROW) ===== */
     .top-bar{
       position:fixed;
       top:0; left:0; right:0;
@@ -81,27 +80,31 @@
       font-size:22px;
       font-weight:700;
       text-align:right;
+      white-space:nowrap;
     }
 
     .nav a{
       color:#fff;
       text-decoration:none;
     }
-
     .nav a:hover{
+      text-decoration:underline;
+    }
+    .nav a.active{
+      color:var(--gold);
       text-decoration:underline;
     }
 
     /* ===== CONTENT ===== */
     .content{
-      padding-top:170px;
+      padding-top:170px;  /* space for fixed top-bar */
       padding-left:30px;
       padding-right:30px;
       padding-bottom:40px;
     }
 
     .paper{
-      background:#fff;
+      background:var(--paper);
       padding:22px 18px 26px;
     }
 
@@ -122,7 +125,7 @@
       clear:both;
     }
 
-    /* ===== TABLE ===== */
+    /* ===== TABLE (mobile safe) ===== */
     .table-wrap{
       width:100%;
       overflow-x:auto;
@@ -149,80 +152,29 @@
     .family-table th{ font-weight:700; }
 
     .family-table th:nth-child(1),
-    .family-table td:nth-child(1){ width:8%; }
+    .family-table td:nth-child(1){ width:8%; text-align:left; }
 
     .family-table th:nth-child(2),
-    .family-table td:nth-child(2){
-      width:57%;
-      font-style:italic;
-    }
+    .family-table td:nth-child(2){ width:57%; text-align:left; }
 
     .family-table th:nth-child(3),
-    .family-table td:nth-child(3){ width:35%; }
-
-    /* ===== FOOTER ===== */
-    .footer-nav{
-      background:var(--maroon);
-      color:var(--cream);
-      text-align:center;
-      padding:26px 10px 20px;
-      margin-top:40px;
-    }
-
-    .footer-line{
-      border-top:2px solid var(--cream);
-      margin:16px auto;
-      max-width:90%;
-    }
-
-    .footer-links{
-      display:flex;
-      justify-content:center;
-      gap:60px;
-      font-size:24px;
-      font-weight:600;
-    }
-
-    .footer-links a{
-      color:var(--cream);
-      text-decoration:none;
-    }
-
-    .footer-links a:hover{
-      text-decoration:underline;
-    }
-
-    .footer-text{
-      margin-top:12px;
-      font-size:12px;
-    }
+    .family-table td:nth-child(3){ width:35%; text-align:left; }
 
     /* ===== MOBILE ===== */
     @media (max-width:900px){
-      .top-bar{
-        flex-direction:column;
-      }
-      .top-left{
-        max-width:100%;
-        padding-right:0;
-      }
-      .site-title,
-      .site-subtitle{
-        text-align:left;
-      }
-      .sidebar{
-        width:100%;
-        margin-top:18px;
-      }
-      .sidebar h3,
-      .nav li{
-        text-align:left;
-      }
+      .top-bar{ flex-direction:column; }
+      .top-left{ max-width:100%; padding-right:0; }
+      .site-title,.site-subtitle{ text-align:left; }
+
+      .sidebar{ width:100%; margin-top:18px; }
+      .sidebar h3,.nav li{ text-align:left; }
+
       .content{
         padding-top:260px;
         padding-left:18px;
         padding-right:18px;
       }
+
       table.family-table{
         min-width:720px;
         table-layout:auto;
@@ -245,13 +197,15 @@
     <aside class="sidebar">
       <h3>INDEX</h3>
       <ul class="nav">
-        <li>• <a href="/Families/papilionidae.html">Papilionidae</a></li>
-        <li>• <a href="/Families/pieridae.html">Pieridae</a></li>
-        <li>• <a href="/Families/nymphalidae.html">Nymphalidae</a></li>
-        <li>• <a href="/Families/riodinidae.html">Riodinidae</a></li>
-        <li>• <a href="/Families/lycaenidae.html">Lycaenidae</a></li>
-        <li>• <a href="/Families/hesperiidae.html">Hesperiidae</a></li>
-        <li>• <a href="/index.html">Home Page</a></li>
+        <li>· <a href="/Families/papilionidae.html">Papilionidae</a></li>
+        <li>· <a href="/Families/pieridae.html">Pieridae</a></li>
+        <li>· <a href="/Families/nymphalidae.html">Nymphalidae</a></li>
+        <li>· <a class="active" href="/Families/riodinidae.html">Riodinidae</a></li>
+        <li>· <a href="/Families/lycaenidae.html">Lycaenidae</a></li>
+        <li>· <a href="/Families/hesperiidae.html">Hesperiidae</a></li>
+        <li>· <a href="/checklist.html">Checklist</a></li>
+        <li>· <a href="/pdf2015.html">PDF 2015</a></li>
+        <li>· <a href="/index.html">Home Page</a></li>
       </ul>
     </aside>
   </div>
@@ -261,7 +215,7 @@
     <div class="paper">
       <div class="meta-dates">
         Published: 24 Feb 2015<br>
-        Updated: 02 Jan 2026
+        Updated: 05 Jan 2026
       </div>
 
       <div class="family-title">Family: Riodinidae</div>
@@ -276,28 +230,13 @@
             </tr>
           </thead>
           <tbody>
-      <tr><td>1</td><td><i>Abisara bifasciata</i> Moore, 1877</td><td>Double-banded Judy</td></tr>
-      <tr><td>2</td><td><i>Abisara neophron</i> Hewitson, 1861</td><td>Tailed Judy</td></tr>
-      <tr><td>3</td><td><i>Abisara echerius suffusa</i> Moore, 1882</td><td>Plain Puffin</td></tr>
-      <tr><td>4</td><td><i>Taxila haquinus fasciata</i> Moore, 1878</td><td>Harlequin</td></tr>
-      <tr><td>5</td><td><i>Zemeros flegyas flegyas</i> Cramer, 1780</td><td>Punchinello</td></tr>
-
+            <tr><td>1</td><td><i>Abisara bifasciata</i> Moore, 1877</td><td>Double-banded Judy</td></tr>
+            <tr><td>2</td><td><i>Abisara neophron</i> Hewitson, 1861</td><td>Tailed Judy</td></tr>
+            <tr><td>3</td><td><i>Abisara echerius suffusa</i> Moore, 1882</td><td>Plain Puffin</td></tr>
+            <tr><td>4</td><td><i>Taxila haquinus fasciata</i> Moore, 1878</td><td>Harlequin</td></tr>
+            <tr><td>5</td><td><i>Zemeros flegyas flegyas</i> Cramer, 1780</td><td>Punchinello</td></tr>
           </tbody>
         </table>
-      </div>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="footer-nav">
-      <div class="footer-line"></div>
-      <div class="footer-links">
-        <a href="javascript:history.back()">Back</a>
-        <a href="/Families/lycaenidae.html">Next</a>
-        <a href="/index.html">Home</a>
-      </div>
-      <div class="footer-line"></div>
-      <div class="footer-text">
-        A Checklist of Butterflies of Bangladesh. Copyright © 2015–2026 T.R. Shihan.
       </div>
     </div>
   </main>
