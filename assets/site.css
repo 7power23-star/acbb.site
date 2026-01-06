@@ -50,7 +50,7 @@ body{
 /* SIDEBAR (INDEX) */
 .sidebar{
   width:280px;
-  background:var(--bg);
+  background:#6f0d0d;
   padding:36px 18px;
   border-left:2px solid #000;
 }
@@ -138,23 +138,7 @@ body{
       <p>An academic reference website listing butterfly species recorded in Bangladesh</p>
     </header>
 
-    <div class="main">
-      <!-- White middle content -->
-      <section class="content">
-        <div class="home-photos">
-          <div class="photo-card">
-            <img src="images/home/001.jpg" alt="Common Pierrot Mating">
-            <div class="photo-cap">Common Pierrot Mating</div>
-          </div>
-
-          <div class="photo-card">
-            <img src="images/home/002.png" alt="Puddling of butterflies">
-            <div class="photo-cap">Puddling of butterflies</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Right sidebar index -->
+     <!-- Right sidebar index -->
       <aside class="sidebar">
         <h2>INDEX</h2>
         <ul class="nav">
