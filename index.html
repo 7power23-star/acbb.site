@@ -4,35 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>A Checklist of Butterflies of Bangladesh</title>
+
   <style>
-    /* Home page photo */
-.home-photo {
-  float: right;
-  margin: 20px 20px 20px 20px;
-  max-width: 600px;
-  text-align: center;
-}
-
-.home-photo img {
-  width: 100%;
-  height: auto;
-  max-height: 360px;
-  object-fit: contain;
-  border: 1px solid #000;
-  background: #fff;
-}
-
-.home-photo .caption {
-  margin-top: 6px;
-  font-size: 12px;
-  color: #000;
-}
-
     :root{
       --bg:#6f0d0d;          /* maroon */
       --accent:#ffd200;      /* yellow subtitle */
       --white:#ffffff;
       --text:#111;
+      --cream:#f5e6c8;
     }
 
     *{ box-sizing:border-box; }
@@ -44,108 +23,144 @@
       color:#fff;
     }
 
-    /* top header */
+    /* ===== top header (acbbu style) ===== */
     .topbar{
-      padding: 26px 40px 16px 40px;
+      padding: 22px 40px 10px 40px;
       text-align:right;
     }
     .topbar h1{
       margin:0;
       font-style: italic;
       font-weight: 700;
-      font-size: 34px;
+      font-size: 32px;
       line-height: 1.1;
       color:#fff;
     }
     .topbar p{
       margin:6px 0 0 0;
       color: var(--accent);
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 14px;
+      font-weight: 700;
     }
 
-    /* main layout: content + right index */
+    /* ===== main layout ===== */
     .main{
       display:flex;
-      gap:0;
       align-items:stretch;
-      min-height: calc(100vh - 90px);
+      min-height: calc(100vh - 120px);
     }
 
-    /* white content area (left) */
+    /* left content */
     .content{
       flex: 1;
-      padding: 28px 40px 40px 40px;
+      padding: 18px 40px 0 40px;
     }
 
     .panel{
       background: var(--white);
       color: var(--text);
-      min-height: 520px;
-      padding: 30px 40px;
+      min-height: 420px;
+      padding: 26px 30px;
     }
 
-      .panel .meta{
-      margin-top: 80px;
+    /* inside panel: left text + center images */
+    .home-grid{
+      display:grid;
+      grid-template-columns: 420px 1fr;
+      gap: 30px;
+      align-items:center;
+      min-height: 340px;
+    }
+
+    .home-left{
       font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
       font-weight: 800;
-      font-size: 16px;
+      font-size: 18px;
+      line-height: 1.25;
     }
 
-    .panel .meta small{
-      font-weight: 700;
-      font-size: 16px;
-    }
-
-    .panel .comments{
-      margin-top: 70px;
-      font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+    .home-left .email{
+      display:inline-block;
+      margin-top: 6px;
       font-weight: 900;
-      font-size: 16px;
-      line-height:1.2;
+      color:#000;
+      text-decoration:none;
+    }
+    .home-left .email:hover{
+      text-decoration:underline;
     }
 
-    .panel .copyright{
-      margin-top: 60px;
-      font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+    .home-left .copy{
+      margin-top: 24px;
       font-weight: 900;
-      font-size: 16px;
+    }
+
+    /* images area (2 images centered) */
+    .home-photos{
+      display:flex;
+      justify-content:center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .photo-card{
+      width: 360px;
+      max-width: 100%;
+      text-align:center;
+    }
+
+    .photo-card img{
+      width:100%;
+      height:auto;
+      max-height: 230px;
+      object-fit: cover;
+      border: 1px solid #000;
+      background:#fff;
+      display:block;
+    }
+
+    .photo-card .cap{
+      font-size: 11px;
+      color:#000;
+      margin-top: 6px;
+      font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
     }
 
     /* right sidebar index */
     .sidebar{
-      width: 340px;
-      padding: 42px 30px;
+      width: 320px;
+      padding: 22px 26px;
       color:#fff;
     }
 
     .sidebar h2{
-      margin: 24px 0 20px 0;
+      margin: 18px 0 14px 0;
       text-align:center;
       font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
       letter-spacing: 3px;
-      font-size: 28px;
+      font-size: 18px;
       font-weight: 900;
     }
 
     .nav{
       list-style: none;
       margin: 0;
-      padding: 0 0 0 12px;
+      padding: 0 0 0 10px;
       font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-      font-size: 18px;
-      line-height: 1.45;
-      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 700;
     }
 
     .nav li{
       display:flex;
       gap: 10px;
       align-items:baseline;
+      margin: 2px 0;
     }
     .nav li::before{
       content:"·";
-      font-size: 18px;
+      font-size: 16px;
       line-height: 1;
       opacity: .9;
     }
@@ -158,11 +173,69 @@
       text-decoration:underline;
     }
 
-    /* make it stack on small screens */
+    /* ===== bottom footer nav bar (like your image) ===== */
+    .footer-nav{
+      background: var(--bg);
+      color: var(--cream);
+      text-align:center;
+      padding: 16px 10px 12px;
+      margin-top: 14px;
+    }
+
+    .footer-line{
+      border-top: 2px solid var(--cream);
+      margin: 10px auto;
+      max-width: 94%;
+    }
+
+    .footer-links{
+      display:flex;
+      justify-content:center;
+      gap: 120px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+    }
+
+    .footer-links a{
+      color: var(--cream);
+      text-decoration:none;
+    }
+    .footer-links a:hover{
+      text-decoration:underline;
+    }
+
+    .footer-text{
+      margin-top: 8px;
+      font-size: 10px;
+      opacity: .95;
+      font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+    }
+
+    /* ===== responsive ===== */
+    @media (max-width: 1100px){
+      .home-grid{
+        grid-template-columns: 1fr;
+      }
+      .home-left{
+        text-align:left;
+      }
+      .footer-links{
+        gap: 60px;
+      }
+    }
+
     @media (max-width: 980px){
       .main{ flex-direction:column; }
       .sidebar{ width:auto; }
       .topbar{ text-align:left; }
+      .content{ padding: 18px 18px 0 18px; }
+    }
+
+    @media (max-width: 520px){
+      .topbar h1{ font-size: 24px; }
+      .topbar p{ font-size: 12px; }
+      .footer-links{ gap: 30px; }
     }
   </style>
 </head>
@@ -170,57 +243,70 @@
 <body>
   <header class="topbar">
     <h1>A Checklist of Butterflies of Bangladesh</h1>
-    <p>An academic reference website listing butterfly species recorded in Bangladesh</p>
+    <p>An academic reference website listing butterfly species recorded in Bangladesh with references</p>
   </header>
 
   <div class="main">
     <!-- LEFT: WHITE CONTENT BOX -->
     <section class="content">
       <div class="panel">
-    
-  <!-- Home page photo -->
-  <div class="home-photo">
-    <img src="images/home/ACBB_TR_Shihan.jpg"
-         alt="Butterflies in Bangladesh">
-    <div class="caption">
+
+        <div class="home-grid">
+          <!-- left text -->
+          <div class="home-left">
+            Your comments are welcome and look forward to hearing<br>
+            from you.<br>
+            <a class="email" href="mailto:horbola7@gmail.com">E-mail</a>
+
+            <div class="copy">Copyright © 2026&nbsp; TR Shihan</div>
+          </div>
+
+          <!-- center images -->
+          <div class="home-photos">
+            <div class="photo-card">
+              <img src="images/home/home1.jpg" alt="Butterfly photo 1">
+              <div class="cap"></div>
+            </div>
+
+            <div class="photo-card">
+              <img src="images/home/ACBB_TR_Shihan.jpg" alt="Butterflies in Bangladesh">
+              <div class="cap"></div>
+            </div>
+          </div>
         </div>
-  </div>
 
-        <div class="meta">
-          <small>Last Update:</small> 02-01-2026
+      </div>
+
+      <!-- bottom bar -->
+      <div class="footer-nav">
+        <div class="footer-line"></div>
+
+        <div class="footer-links">
+          <a href="javascript:history.back()">Back</a>
+          <a href="Families/papilionidae.html">Next</a>
+          <a href="index.html">Home</a>
         </div>
 
-        <div class="comments">
-          Your comments are welcome<br/>
-          and look forward to hearing from you.<br/>
-          <a href="mailto:horbola7@gmail.com">E-mail (contact)</a>
+        <div class="footer-line"></div>
 
-        </div>
-
-        <div class="copyright">
-          Copyright © 2026&nbsp;&nbsp;TR Shihan
+        <div class="footer-text">
+          A Checklist of Butterflies of Bangladesh. Copyright © 2015–2026 T.R. Shihan.
         </div>
       </div>
+
     </section>
 
     <!-- RIGHT: INDEX MENU -->
     <aside class="sidebar">
       <h2>INDEX</h2>
       <ul class="nav">
-        <!-- Update these links to match your real filenames EXACTLY (case sensitive) -->
         <li><a href="Families/papilionidae.html">Papilionidae</a></li>
         <li><a href="Families/pieridae.html">Pieridae</a></li>
         <li><a href="Families/nymphalidae.html">Nymphalidae</a></li>
         <li><a href="Families/riodinidae.html">Riodinidae</a></li>
         <li><a href="Families/lycaenidae.html">Lycaenidae</a></li>
         <li><a href="Families/hesperiidae.html">Hesperiidae</a></li>
-
-        <!-- Checklist: choose the correct one -->
         <li><a href="complete%20checklist.html">Checklist</a></li>
-        <!-- If you rename file to complete-checklist.html, use:
-        <li><a href="complete-checklist.html">Checklist</a></li>
-        -->
-
         <li><a href="butterflies-of-bangladesh-checklist.pdf">PDF 2015</a></li>
         <li><a href="index.html">Home Page</a></li>
       </ul>
