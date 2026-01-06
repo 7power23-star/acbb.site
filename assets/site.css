@@ -26,7 +26,7 @@ body{
 }
 .topbar p{
   margin:4px 0 0;
-  color:var(--accent);
+  color:#ffd200;
   font-size:13px;
   font-weight:700;
 }
