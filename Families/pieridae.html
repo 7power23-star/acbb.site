@@ -1,60 +1,50 @@
-<style>
-/* Section container */
-#pieridae {
-  position: relative;
-  padding-top: 35px; /* space for published/updated dates */
-}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-/* Published / Updated dates (top-right) */
-#pieridae .meta-dates {
-  position: absolute;
-  top: 0;
-  right: 0;
-  text-align: right;
-  font-size: 13px;
-  color: #444;
-  line-height: 1.4;
-}
+  <!-- GLOBAL SITE CSS -->
+  <link rel="stylesheet" href="/assets/site.css">
 
-/* Section title */
-#pieridae h2 {
-  text-align: center;
-  margin-bottom: 15px;
-}
+  <!-- PAGE-SPECIFIC CSS -->
+  <style>
+    /* Section container */
+    #pieridae {
+      position: relative;
+      padding-top: 35px;
+    }
 
-/* Table layout */
-#pieridae table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-}
+    /* Published / Updated dates */
+    #pieridae .meta-dates {
+      position: absolute;
+      top: 0;
+      right: 0;
+      text-align: right;
+      font-size: 13px;
+      color: #444;
+      line-height: 1.4;
+    }
 
-/* Table cells */
-#pieridae th,
-#pieridae td {
-  padding: 4px 8px;
-  vertical-align: top;
-}
+    /* Section title */
+    #pieridae h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
 
-/* Column widths */
-#pieridae th:nth-child(1),
-#pieridae td:nth-child(1) {
-  width: 5%;
-  text-align: left;
-}
+    /* Table layout */
+    #pieridae table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
 
-#pieridae th:nth-child(2),
-#pieridae td:nth-child(2) {
-  width: 60%;
-  text-align: left;
-}
+    #pieridae th,
+    #pieridae td {
+      padding: 4px 8px;
+      vertical-align: top;
+    }
+  </style>
+</head>
 
-#pieridae th:nth-child(3),
-#pieridae td:nth-child(3) {
-  width: 35%;
-  text-align: left;
-}
-</style>
 
 <section id="pieridae">
   <div class="meta-dates">
