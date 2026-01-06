@@ -5,11 +5,11 @@
 body{
   margin:0;
   font-family:"Georgia","Times New Roman",serif;
-  background:#6f0d0d;
+  background:var(--bg);
   color:#fff;
 }
 
-/* HEADER */
+/* ===== HEADER BAR (thin) ===== */
 .topbar{
   padding:14px 40px 10px;
   text-align:center;
@@ -18,21 +18,25 @@ body{
 }
 .topbar h1{
   margin:0;
-  font-style:italic;
-  font-weight:700;
-  font-size:22px;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.15;
+  color:#fff;
 }
 .topbar p{
   margin:4px 0 0;
-  color:#ffd200;
+  color:var(--accent);
   font-size:13px;
   font-weight:700;
 }
 
-/* MAIN LAYOUT */
-.main{
-  display:flex;
-  min-height:calc(100vh - 90px);
+/* ===== MAIN AREA ===== */
+ .main{
+   display:flex;
+   align-items:stretch;
+   min-height: calc(100vh - 112px); /* header + footer space */
+   border-bottom: 2px solid #000;
 }
 
 /* WHITE CONTENT */
@@ -46,15 +50,17 @@ body{
 /* SIDEBAR (INDEX) */
 .sidebar{
   width:280px;
-  background:#6f0d0d;
-  padding:32px 20px;
+  background:var(--bg);
+  padding:36px 18px;
   border-left:2px solid #000;
 }
 .sidebar h2{
-  margin:28px 0 14px 12px;
-  letter-spacing:3px;
-  font-size:16px;
-  font-weight:900;
+      margin: 34px 0 14px 12px;
+      text-align:left;              /* aligned with links */
+      font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      letter-spacing: 3px;
+      font-size: 16px;
+      font-weight: 900;
 }
 .nav{
   list-style:none;
@@ -80,18 +86,88 @@ body{
   text-decoration:underline;
 }
 
-/* MOBILE: scale whole page (no design break) */
-@media (max-width:900px){
-  .page-scale{
-    transform:scale(0.85);
-    transform-origin:top left;
-    width:calc(100% / 0.85);
-  }
-}
-@media (max-width:600px){
-  .page-scale{
-    transform:scale(0.75);
-    transform-origin:top left;
-    width:calc(100% / 0.75);
-  }
-}
+ /* =========================================================
+       MOBILE: DO NOT CHANGE LAYOUT (NO stacking, NO fragmenting)
+       Just shrink everything and allow horizontal scroll if needed
+    ========================================================== */
+    @media (max-width: 900px){
+      body{
+        overflow-x:auto; /* keep design, allow scroll */
+      }
+
+      /* scale everything down */
+      .page-scale{
+        transform: scale(0.85);
+        transform-origin: top left;
+        width: calc(100% / 0.85);
+      }
+    }
+
+    @media (max-width: 600px){
+      body{
+        overflow-x:auto;
+      }
+
+      .page-scale{
+        transform: scale(0.75);
+        transform-origin: top left;
+        width: calc(100% / 0.75);
+      }
+    }
+
+    @media (max-width: 420px){
+      body{
+        overflow-x:auto;
+      }
+
+      .page-scale{
+        transform: scale(0.68);
+        transform-origin: top left;
+        width: calc(100% / 0.68);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Wrap whole page in scale container -->
+  <div class="page-scale">
+
+    <header class="topbar">
+      <h1>A Checklist of Butterflies of Bangladesh</h1>
+      <p>An academic reference website listing butterfly species recorded in Bangladesh</p>
+    </header>
+
+    <div class="main">
+      <!-- White middle content -->
+      <section class="content">
+        <div class="home-photos">
+          <div class="photo-card">
+            <img src="images/home/001.jpg" alt="Common Pierrot Mating">
+            <div class="photo-cap">Common Pierrot Mating</div>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/home/002.png" alt="Puddling of butterflies">
+            <div class="photo-cap">Puddling of butterflies</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right sidebar index -->
+      <aside class="sidebar">
+        <h2>INDEX</h2>
+        <ul class="nav">
+          <li><a href="Families/papilionidae.html">Papilionidae</a></li>
+          <li><a href="Families/pieridae.html">Pieridae</a></li>
+          <li><a href="Families/nymphalidae.html">Nymphalidae</a></li>
+          <li><a href="Families/riodinidae.html">Riodinidae</a></li>
+          <li><a href="Families/lycaenidae.html">Lycaenidae</a></li>
+          <li><a href="Families/hesperiidae.html">Hesperiidae</a></li>
+          <li><a href="complete%20checklist.html">Checklist</a></li>
+          <li><a href="butterflies-of-bangladesh-checklist.pdf">PDF 2015</a></li>
+          <li><a href="index.html">Home Page</a></li>
+        </ul>
+      </aside>
+    </div>
+
