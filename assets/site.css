@@ -1,136 +1,90 @@
-:root{
-  --bg:#6f0d0d;
-  --accent:#ffd200;
-  --white:#ffffff;
-  --text:#111;
-  --cream:#f5e6c8;
-  --border:#111;
-}
+/* =========================
+   FAMILY PAGE LAYOUT (LIKE SCREENSHOT)
+========================= */
 
-*{ box-sizing:border-box; }
-
-body{
-  margin:0;
-  font-family:"Georgia","Times New Roman",serif;
-  background:var(--bg);
-  color:#fff;
-}
-
-/* ===== HEADER ===== */
-.topbar{
-  padding:14px 40px 10px;
-  text-align:center;
-  background:var(--bg);
-  border-bottom:2px solid #000;
-}
-.topbar h1{
-  margin:0;
-  font-style:italic;
-  font-weight:700;
-  font-size:22px;
-  line-height:1.15;
-}
-.topbar p{
-  margin:4px 0 0;
-  color:var(--accent);
-  font-size:13px;
-  font-weight:700;
-}
-
-/* ===== MAIN LAYOUT ===== */
-.main{
-  display:flex;
-  align-items:stretch;
-  min-height:calc(100vh - 112px);
-  border-bottom:2px solid #000;
-}
-
-/* ===== CONTENT ===== */
+/* white content must be position-relative so dates can sit in top-right */
 .content{
-  flex:1;
-  background:var(--white);
-  padding:22px 24px;
-  color:var(--text);
+  position: relative;
 }
 
-/* ===== SIDEBAR ===== */
-.sidebar{
-  width:280px;
-  padding:36px 18px;
-  background:var(--bg);
-  border-left:2px solid #000;
-}
-.sidebar h2{
-  margin:34px 0 14px 12px;
-  text-align:left;
-  font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
-  letter-spacing:3px;
-  font-size:16px;
-  font-weight:900;
-}
-.nav{
-  list-style:none;
-  margin:0;
-  padding-left:12px;
-  font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
-  font-size:14px;
-  line-height:1.35;
-  font-weight:700;
-}
-.nav li{
-  display:flex;
-  gap:10px;
-  align-items:baseline;
-}
-.nav li::before{
-  content:"·";
-  font-size:16px;
-}
-.nav a{
-  color:#fff;
-  text-decoration:none;
-}
-.nav a:hover{
-  text-decoration:underline;
+/* family page wrapper */
+.family-page{
+  position: relative;
+  padding-top: 32px;  /* space for Published/Updated */
 }
 
-/* ===== FOOTER ===== */
-.footer{
-  background:var(--bg);
-  border-top:2px solid #000;
-  padding:14px 12px 16px;
-  text-align:center;
-  font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
-  font-weight:700;
-  color:var(--cream);
-}
-.footer .line1,
-.footer .line2{
-  font-size:14px;
+/* dates (top-right inside white area) */
+.family-page .meta-dates{
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  text-align: right;
+  font-size: 12px;
+  color: #444;
+  line-height: 1.35;
+  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  font-weight: 700;
 }
 
-/* ===== MOBILE: scale, do not break layout ===== */
-@media (max-width:900px){
-  body{ overflow-x:auto; }
-  .page-scale{
-    transform:scale(0.85);
-    transform-origin:top left;
-    width:calc(100% / 0.85);
-  }
+/* family title centered */
+.family-page h2{
+  margin: 10px 0 14px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
 }
-@media (max-width:600px){
-  body{ overflow-x:auto; }
-  .page-scale{
-    transform:scale(0.75);
-    transform-origin:top left;
-    width:calc(100% / 0.75);
-  }
+
+/* table wrapper */
+.table-wrap{
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
-@media (max-width:420px){
-  body{ overflow-x:auto; }
-  .page-scale{
-    transform:scale(0.68);
-    transform-origin:top left;
-    width:calc(100% / 0.68);
-  }
+
+/* family table (full width) */
+.family-table{
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #fff;
+  color: #111;
+}
+
+/* borders + spacing */
+.family-table th,
+.family-table td{
+  border: 1px solid #9f9f9f;
+  padding: 4px 8px;
+  vertical-align: top;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.family-table th{
+  font-weight: 800;
+  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  font-size: 13px;
+}
+
+/* column widths (like screenshot) */
+.family-table th:nth-child(1),
+.family-table td:nth-child(1){
+  width: 6%;
+  text-align: left;
+}
+.family-table th:nth-child(2),
+.family-table td:nth-child(2){
+  width: 59%;
+  text-align: left;
+}
+.family-table th:nth-child(3),
+.family-table td:nth-child(3){
+  width: 35%;
+  text-align: left;
+}
+
+/* make scientific name italic (only inside <i>) */
+.family-table td:nth-child(2) i{
+  font-style: italic;
 }
