@@ -3,103 +3,137 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Family: Riodinidae — A Checklist of Butterflies of Bangladesh</title>
+  <title>A Checklist of Butterflies of Bangladesh</title>
 
   <style>
     :root{
-      --bg:#6f0d0d;          /* maroon (same as home) */
+      --bg:#6f0d0d;          /* maroon */
       --accent:#ffd200;      /* yellow subtitle */
       --white:#ffffff;
       --text:#111;
-      --line:#b9b9b9;
+      --cream:#f5e6c8;
+      --border:#111;
     }
 
     *{ box-sizing:border-box; }
 
     body{
       margin:0;
-      font-family: "Georgia", "Times New Roman", serif;
-      background: var(--bg);
+      font-family:"Georgia","Times New Roman",serif;
+      background:var(--bg);
       color:#fff;
     }
 
-    /* top header (same as home) */
+    /* ===== HEADER BAR (thin) ===== */
     .topbar{
-      padding: 26px 40px 16px 40px;
-      text-align:right;
+      padding: 14px 40px 10px;
+      text-align:center;
+      border-bottom: 2px solid #000;
     }
     .topbar h1{
       margin:0;
       font-style: italic;
       font-weight: 700;
-      font-size: 34px;
-      line-height: 1.1;
+      font-size: 22px;
+      line-height: 1.15;
       color:#fff;
     }
     .topbar p{
-      margin:6px 0 0 0;
+      margin: 4px 0 0;
       color: var(--accent);
-      font-size: 16px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* ===== MAIN AREA ===== */
+    .main{
+      display:flex;
+      align-items:stretch;
+      min-height: calc(100vh - 112px); /* header + footer space */
+      border-bottom: 2px solid #000;
+    }
+
+    /* White content */
+    .content{
+      flex:1;
+      background: var(--white);
+      padding: 22px 24px;
+    }
+
+    /* Two photos centered */
+    .home-photos{
+      height: 100%;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      gap: 26px;
+      padding-top: 38px;
+      flex-wrap: nowrap; /* keep in one row like screenshot */
+    }
+
+    .photo-card{
+      width: 360px;
+      text-align:center;
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      font-size: 11px;
       font-weight: 600;
     }
 
-    /* main layout: content + right index (same as home) */
-    .main{
-      display:flex;
-      gap:0;
-      align-items:stretch;
-      min-height: calc(100vh - 90px);
+    .photo-card img{
+      width: 100%;
+      height: auto;
+      max-height: 240px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      background:#fff;
+      display:block;
+      margin: 0 auto;
     }
 
-    /* white content area (left) */
-    .content{
-      flex: 1;
-      padding: 28px 40px 40px 40px;
+    .photo-cap{
+      margin-top: 6px;
     }
 
-    .panel{
-      background: var(--white);
-      color: var(--text);
-      min-height: 520px;
-      padding: 30px 40px;
-    }
-
-    /* right sidebar index (same as home) */
+    /* Right maroon sidebar */
     .sidebar{
-      width: 340px;
-      padding: 42px 30px;
-      color:#fff;
+      width: 280px;
+      padding: 36px 18px;
+      background: var(--bg);
+      border-left: 2px solid #000;
     }
 
     .sidebar h2{
-      margin: 24px 0 20px 0;
-      text-align:center;
+      margin: 34px 0 14px 12px;
+      text-align:left;              /* aligned with links */
       font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
       letter-spacing: 3px;
-      font-size: 28px;
+      font-size: 16px;
       font-weight: 900;
     }
 
     .nav{
-      list-style: none;
-      margin: 0;
-      padding: 0 0 0 12px;
+      list-style:none;
+      margin:0;
+      padding-left:12px;
       font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-      font-size: 18px;
-      line-height: 1.45;
-      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 700;
     }
 
     .nav li{
       display:flex;
-      gap: 10px;
+      gap:10px;
       align-items:baseline;
+      margin: 2px 0;
     }
+
     .nav li::before{
       content:"·";
-      font-size: 18px;
-      line-height: 1;
-      opacity: .9;
+      font-size:16px;
+      line-height:1;
+      opacity:.95;
     }
 
     .nav a{
@@ -110,145 +144,115 @@
       text-decoration:underline;
     }
 
-    /* highlight current page in index */
-    .nav a.active{
-      color: var(--accent);
-      text-decoration: underline;
-      font-weight: 700;
-    }
-
-    /* ===== FAMILY PAGE CONTENT (inside white panel) ===== */
-
-    /* dates (top-right inside panel) */
-    .meta-dates{
-      float: right;
-      text-align: right;
-      font-size: 13px;
-      color: #444;
-      line-height: 1.4;
+    /* ===== FOOTER BAR ===== */
+    .footer{
+      background: var(--bg);
+      border-top: 2px solid #000;
+      padding: 14px 12px 16px;
+      text-align:center;
       font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
       font-weight: 700;
+      color: var(--cream);
     }
 
-    .family-title{
-      text-align: center;
-      font-weight: 700;
-      font-size: 20px;
-      margin: 10px 0 16px 0;
-      clear: both;
-    }
-
-    /* mobile-safe table */
-    .table-wrap{
-      width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    table.family-table{
-      width: 100%;
-      min-width: 900px;
-      border-collapse: collapse;
-      table-layout: fixed;
-      background: #fff;
-      color: #111;
-    }
-
-    .family-table th,
-    .family-table td{
-      border: 1px solid var(--line);
-      padding: 6px 8px;
-      vertical-align: top;
+    .footer .line1{
       font-size: 14px;
-      overflow-wrap: anywhere;
+      margin-bottom: 10px;
+    }
+    .footer .line2{
+      font-size: 14px;
     }
 
-    .family-table th{
-      font-weight: 700;
-      font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-      font-size: 13px;
+    /* =========================================================
+       MOBILE: DO NOT CHANGE LAYOUT (NO stacking, NO fragmenting)
+       Just shrink everything and allow horizontal scroll if needed
+    ========================================================== */
+    @media (max-width: 900px){
+      body{
+        overflow-x:auto; /* keep design, allow scroll */
+      }
+
+      /* scale everything down */
+      .page-scale{
+        transform: scale(0.85);
+        transform-origin: top left;
+        width: calc(100% / 0.85);
+      }
     }
 
-    /* column widths */
-    .family-table th:nth-child(1),
-    .family-table td:nth-child(1){ width: 8%; text-align:left; }
+    @media (max-width: 600px){
+      body{
+        overflow-x:auto;
+      }
 
-    .family-table th:nth-child(2),
-    .family-table td:nth-child(2){ width: 57%; text-align:left; }
-
-    .family-table th:nth-child(3),
-    .family-table td:nth-child(3){ width: 35%; text-align:left; }
-
-    /* make scientific names italic */
-    .family-table td:nth-child(2){
-      font-style: italic;
+      .page-scale{
+        transform: scale(0.75);
+        transform-origin: top left;
+        width: calc(100% / 0.75);
+      }
     }
 
-    /* stack on small screens (same as home) */
-    @media (max-width: 980px){
-      .main{ flex-direction:column; }
-      .sidebar{ width:auto; }
-      .topbar{ text-align:left; }
-      table.family-table{ min-width: 720px; table-layout:auto; }
+    @media (max-width: 420px){
+      body{
+        overflow-x:auto;
+      }
+
+      .page-scale{
+        transform: scale(0.68);
+        transform-origin: top left;
+        width: calc(100% / 0.68);
+      }
     }
   </style>
 </head>
 
 <body>
-  <header class="topbar">
-    <h1>A Checklist of Butterflies of Bangladesh</h1>
-    <p>An academic reference website listing butterfly species recorded in Bangladesh</p>
-  </header>
+  <!-- Wrap whole page in scale container -->
+  <div class="page-scale">
 
-  <div class="main">
-    <!-- LEFT: WHITE CONTENT BOX -->
-    <section class="content">
-      <div class="panel">
-        <div class="meta-dates">
-          Published: 24 Feb 2015<br>
-          Updated: 05 Jan 2026
+    <header class="topbar">
+      <h1>A Checklist of Butterflies of Bangladesh</h1>
+      <p>An academic reference website listing butterfly species recorded in Bangladesh</p>
+    </header>
+
+    <div class="main">
+      <!-- White middle content -->
+      <section class="content">
+        <div class="home-photos">
+          <div class="photo-card">
+            <img src="images/home/001.jpg" alt="Common Pierrot Mating">
+            <div class="photo-cap">Common Pierrot Mating</div>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/home/002.png" alt="Puddling of butterflies">
+            <div class="photo-cap">Puddling of butterflies</div>
+          </div>
         </div>
+      </section>
 
-        <div class="family-title">Family: Riodinidae</div>
+      <!-- Right sidebar index -->
+      <aside class="sidebar">
+        <h2>INDEX</h2>
+        <ul class="nav">
+          <li><a href="Families/papilionidae.html">Papilionidae</a></li>
+          <li><a href="Families/pieridae.html">Pieridae</a></li>
+          <li><a href="Families/nymphalidae.html">Nymphalidae</a></li>
+          <li><a href="Families/riodinidae.html">Riodinidae</a></li>
+          <li><a href="Families/lycaenidae.html">Lycaenidae</a></li>
+          <li><a href="Families/hesperiidae.html">Hesperiidae</a></li>
+          <li><a href="complete%20checklist.html">Checklist</a></li>
+          <li><a href="butterflies-of-bangladesh-checklist.pdf">PDF 2015</a></li>
+          <li><a href="index.html">Home Page</a></li>
+        </ul>
+      </aside>
+    </div>
 
-        <div class="table-wrap">
-          <table class="family-table">
-            <thead>
-              <tr>
-                <th>SL</th>
-                <th>Scientific Name</th>
-                <th>Common Name</th>
-              </tr>
-            </thead>
+    <footer class="footer">
+      <div class="line1">Your comments are welcome and look forward to hearing from you. E-mail</div>
+      <div class="line2">Copyright © 2015- 2026&nbsp;&nbsp;TR Shihan</div>
+    </footer>
 
-            <tbody>
-              <tr><td>1</td><td>Abisara bifasciata Moore, 1877</td><td>Double-banded Judy</td></tr>
-              <tr><td>2</td><td>Abisara neophron Hewitson, 1861</td><td>Tailed Judy</td></tr>
-              <tr><td>3</td><td>Abisara echerius suffusa Moore, 1882</td><td>Plum Judy</td></tr>
-              <tr><td>4</td><td>Taxila haquinus fasciata Moore, 1878</td><td>Harlequin</td></tr>
-              <tr><td>5</td><td>Zemeros flegyas flegyas Cramer, 1780</td><td>Punchinello</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- RIGHT: INDEX MENU (same as home) -->
-    <aside class="sidebar">
-      <h2>INDEX</h2>
-      <ul class="nav">
-        <li><a href="../Families/papilionidae.html">Papilionidae</a></li>
-        <li><a href="../Families/pieridae.html">Pieridae</a></li>
-        <li><a href="../Families/nymphalidae.html">Nymphalidae</a></li>
-        <li><a class="active" href="../Families/riodinidae.html">Riodinidae</a></li>
-        <li><a href="../Families/lycaenidae.html">Lycaenidae</a></li>
-        <li><a href="../Families/hesperiidae.html">Hesperiidae</a></li>
-
-        <li><a href="../complete%20checklist.html">Checklist</a></li>
-        <li><a href="../butterflies-of-bangladesh-checklist.pdf">PDF 2015</a></li>
-        <li><a href="../index.html">Home Page</a></li>
-      </ul>
-    </aside>
   </div>
 </body>
 </html>
