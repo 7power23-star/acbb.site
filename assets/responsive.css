@@ -1,0 +1,7 @@
+@media (max-width:900px){
+  body{ overflow-x:auto; }
+}
+
+@media (max-width:600px){
+  body{ overflow-x:auto; }
+}
