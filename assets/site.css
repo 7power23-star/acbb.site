@@ -6,7 +6,7 @@
   --bg: #000;            /* page background (outside white area) */
   --maroon: #6f0d0d;     /* header + sidebar + footer */
   --gold: #ffd200;       /* subtitle color */
-  --sidebar-w: 110px;    /* <<< change this if your home sidebar is different */
+  --sidebar-w: 130px;    /* <<< change this if your home sidebar is different */
   --container-w: 980px;  /* <<< content width inside white area (home feel) */
 }
 
