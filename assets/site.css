@@ -40,6 +40,14 @@ body{
 }
 
 /* WHITE CONTENT */
+.content{
+  flex: 1;              /* takes remaining width */
+  min-width: 0;         /* prevents flex collapse */
+  background:#fff;
+  color:#111;
+  padding: 18px 22px;
+  position: relative;   /* needed for meta-dates */
+}
 /* the family block is the positioning box */
 .family-page{
   position: relative;
