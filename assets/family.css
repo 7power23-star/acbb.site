@@ -1,42 +1,99 @@
-/* Date block (top-right) */
+/* ================================
+   FAMILY PAGES (tables + meta dates)
+   File: assets/family.css
+   ================================ */
+
+/* Family page wrapper (the white content area block) */
+.family-page{
+  position: relative;            /* so meta-dates can sit on top-right */
+  padding-top: 12px;
+}
+
+/* Center the heading "Family: Pieridae" */
+.family-page h2{
+  margin: 6px 0 10px 0;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 800;
+  color: #000;
+}
+
+/* Published/Updated date box (top-right) */
 .meta-dates{
-  float: right;
+  position: absolute;
+  top: 8px;
+  right: 12px;
   text-align: right;
   font-size: 13px;
+  line-height: 1.35;
   font-weight: 700;
-  margin: 0 0 8px 16px;
+  color: #000;
 }
 
-/* Family title */
-/* ================================
-   FAMILY TABLE – horizontal lines
-================================ */
-.family-page h2{
-  clear: both;
-  text-align: center;
-  margin: 10px 0 14px;
+/* Add spacing so the table doesn't go under the date box */
+.table-wrap{
+  margin-top: 24px;
+}
 
-/* TABLE column alignment */
+/* ===============================
+   FAMILY TABLE – HORIZONTAL LINES ONLY
+   =============================== */
+
 .family-table{
   width: 100%;
-  table-layout: fixed;     /* important for alignment */
   border-collapse: collapse;
+  table-layout: fixed;
+  margin-top: 6px;
 }
 
+/* Header row: strong horizontal rules */
+.family-table thead th{
+  font-weight: 700;
+  text-align: center;
+  padding: 6px 8px;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  color: #000;
+}
+
+/* Body rows: ONLY bottom border (horizontal line) */
+.family-table tbody td{
+  padding: 5px 8px;
+  border-bottom: 1px solid #999;   /* horizontal line */
+  vertical-align: top;
+  color: #000;
+}
+
+/* Column widths + alignment */
 .family-table th:nth-child(1),
 .family-table td:nth-child(1){
-  width: 60px;
+  width: 6%;
   text-align: left;
 }
 
 .family-table th:nth-child(2),
 .family-table td:nth-child(2){
-  width: 60%;
+  width: 54%;
   text-align: left;
 }
 
 .family-table th:nth-child(3),
 .family-table td:nth-child(3){
-  width: calc(40% - 60px);
+  width: 40%;
   text-align: left;
 }
+
+/* Scientific names italic (if wrapped in <i> ... </i>) */
+.family-table td:nth-child(2) i{
+  font-style: italic;
+}
+
+/* If you want the whole scientific-name column italic (even without <i>) */
+.family-table td:nth-child(2){
+  font-style: italic;
+}
+
+/* But keep author/year in normal style if it is not inside <i>:
+   If your HTML uses <i> only for the Latin name, remove the rule above:
+   .family-table td:nth-child(2){ font-style: italic; }
+*/
