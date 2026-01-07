@@ -177,51 +177,42 @@ body{
       </aside>
     </div>
 /* =========================
-   FOOTER (MATCH HEADER)
-========================= */
-
+   FOOTER (maroon like header)
+   ========================= */
 .site-footer{
-  background:#6f0d0d;        /* SAME AS HEADER */
+  background:#6f0d0d;
   color:#f5e6c8;
   text-align:center;
-  padding:18px 0 16px;
+  padding:18px 10px 16px;
   border-top:2px solid #000;
 }
 
-.site-footer *{
-  background: transparent;  /* prevents white bleed */
-}
-
-/* horizontal lines */
-.footer-line{
-  width:90%;
+.site-footer .footer-line{
   border-top:2px solid #f5e6c8;
   margin:10px auto;
+  max-width:98%;
 }
 
-/* navigation links */
-.footer-nav{
+.site-footer .footer-nav{
   display:flex;
   justify-content:center;
-  gap:80px;
-  font-size:16px;
+  gap:140px;
+  font-family:"Georgia","Times New Roman",serif;
+  font-size:18px;
   font-weight:700;
 }
 
-.footer-nav a{
+.site-footer .footer-nav a{
   color:#f5e6c8;
   text-decoration:none;
 }
 
-.footer-nav a:hover{
+.site-footer .footer-nav a:hover{
   text-decoration:underline;
 }
 
-/* copyright text */
-.footer-text{
+.site-footer .footer-text{
   margin-top:10px;
   font-size:12px;
-  font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  opacity:.95;
 }
-
-
