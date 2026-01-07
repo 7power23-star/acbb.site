@@ -1,34 +1,20 @@
-/* =========================
-   Base / Global Variables
-   ========================= */
 :root{
-  --bg: #ffffff;          /* main page background */
-  --bg-1: #6b0000;        /* maroon (sidebar / header) */
-  --maroon: #6b0000;
-  --border: #000000;
-  --cream: #fff7e0;
+  --maroon:#6f0d0d;
+  --gold:#ffd200;
+  --bg:var(--maroon);
+  --paper:#fff;
+  --ink:#111;
 }
 
-/* =========================
-   Global Reset
-   ========================= */
-*{
-  box-sizing: border-box;
-}
+*{ box-sizing:border-box; }
 
-/* =========================
-   Page Defaults
-   ========================= */
 html, body{
-  height: 100%;
-  margin: 0;
+  height:100%;
 }
 
-/* =========================
-   Body Typography & Colors
-   ========================= */
 body{
-  font-family: "Georgia", "Times New Roman", serif;
-  background-color: var(--bg);
-  color: #000000;
+  margin:0;
+  font-family:"Georgia","Times New Roman",serif;
+  background:var(--bg);
+  color:#fff;
 }
