@@ -83,12 +83,17 @@
   text-align: left;
 }
 
-/* Scientific names italic (if wrapped in <i> ... </i>) */
-.family-table td:nth-child(2) i{
+/* ===============================
+   Scientific name formatting
+   =============================== */
+
+/* Latin scientific name only */
+.family-table .sci-name{
   font-style: italic;
 }
 
-/* But keep author/year in normal style if it is not inside <i>:
-   If your HTML uses <i> only for the Latin name, remove the rule above:
-   .family-table td:nth-child(2){ font-style: italic; }
-*/
+/* Author + year (normal text) */
+.family-table .author{
+  font-style: normal;
+  white-space: nowrap;
+}
