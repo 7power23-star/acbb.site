@@ -45,22 +45,6 @@ body{
   padding:18px 22px;
   position:relative;
 }
-/* LEFT CONTENT (same as Home) */
-.content{
-  flex: 1;
-  padding: 20px 40px;
-  min-width: 0;
-  background: transparent;
-  color: #111;
-}
-
-/* White panel (same as Home) */
-.panel{
-  background: #ffffff;
-  color: #111;
-  padding: 30px 36px;
-  min-height: 420px;
-}
 
 /* the family block is the positioning box */
 .family-page{
