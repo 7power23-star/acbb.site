@@ -176,4 +176,45 @@ body{
         </ul>
       </aside>
     </div>
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer{
+  background:#6f0d0d;
+  color:#f5e6c8;
+  text-align:center;
+  padding:18px 0 16px;
+  border-top:2px solid #000;
+}
+
+.footer-line{
+  width:90%;
+  height:0;
+  border-top:2px solid #f5e6c8;
+  margin:10px auto;
+}
+
+.footer-nav{
+  display:flex;
+  justify-content:center;
+  gap:80px;
+  font-size:16px;
+  font-weight:700;
+}
+
+.footer-nav a{
+  color:#f5e6c8;
+  text-decoration:none;
+}
+
+.footer-nav a:hover{
+  text-decoration:underline;
+}
+
+.footer-text{
+  margin-top:10px;
+  font-size:12px;
+  font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+}
 
