@@ -10,7 +10,7 @@
 }
 
 /* Center the heading "Family: Pieridae" */
-.family-page h2{
+.family-title{
   margin: 6px 0 10px 0;
   text-align: center;
   font-size: 26px;
