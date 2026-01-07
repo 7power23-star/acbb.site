@@ -177,24 +177,29 @@ body{
       </aside>
     </div>
 /* =========================
-   FOOTER
+   FOOTER (MATCH HEADER)
 ========================= */
 
 .site-footer{
-  background:#6f0d0d;
+  background:#6f0d0d;        /* SAME AS HEADER */
   color:#f5e6c8;
   text-align:center;
   padding:18px 0 16px;
   border-top:2px solid #000;
 }
 
+.site-footer *{
+  background: transparent;  /* prevents white bleed */
+}
+
+/* horizontal lines */
 .footer-line{
   width:90%;
-  height:0;
   border-top:2px solid #f5e6c8;
   margin:10px auto;
 }
 
+/* navigation links */
 .footer-nav{
   display:flex;
   justify-content:center;
@@ -212,9 +217,11 @@ body{
   text-decoration:underline;
 }
 
+/* copyright text */
 .footer-text{
   margin-top:10px;
   font-size:12px;
   font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
 }
+
 
