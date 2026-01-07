@@ -1,169 +1,222 @@
 /* =========================
-   GLOBAL LAYOUT
-========================= */
+   GLOBAL LAYOUT (HOME + FAMILY PAGES)
+   ========================= */
+
+:root{
+  --bg: #000;            /* page background (outside white area) */
+  --maroon: #6f0d0d;     /* header + sidebar + footer */
+  --gold: #ffd200;       /* subtitle color */
+  --sidebar-w: 180px;    /* <<< change this if your home sidebar is different */
+  --container-w: 980px;  /* <<< content width inside white area (home feel) */
+}
+
+*{ box-sizing: border-box; }
 
 body{
   margin:0;
   font-family:"Georgia","Times New Roman",serif;
-  background:var(--bg);
+  background: var(--bg);
   color:#fff;
 }
 
-/* ===== HEADER BAR (thin) ===== */
+/* =========================
+   HEADER (same for all pages)
+   ========================= */
+
 .topbar{
   padding:14px 40px 10px;
   text-align:center;
-  background:#6f0d0d;
+  background: var(--maroon);
   border-bottom:2px solid #000;
 }
+
 .topbar h1{
   margin:0;
   font-style: italic;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 1.15;
+  font-weight:700;
+  font-size:22px;
+  line-height:1.15;
   color:#fff;
 }
+
 .topbar p{
   margin:4px 0 0;
-  color:#ffd200;
+  color: var(--gold);
   font-size:13px;
   font-weight:700;
 }
 
-/* ===== MAIN AREA ===== */
- .main{
-   display:flex;
-   align-items:stretch;
+/* =========================
+   MAIN AREA (white + sidebar)
+   ========================= */
+
+.main{
+  display:flex;
+  align-items:stretch;
+  min-height: calc(100vh - 112px); /* header + footer space (ok if footer exists) */
+  border-bottom:2px solid #000;
 }
 
+/* WHITE CONTENT AREA */
 .content{
-  flex:1;            /* takes remaining space */
-  min-width:0;       /* IMPORTANT: prevents weird shrink/overflow */
+  flex:1;
   background:#fff;
   color:#111;
   padding:18px 22px;
   position:relative;
+
+  /* IMPORTANT: makes content centered like HOME */
+  display:flex;
+  justify-content:center;
 }
 
-/* the family block is the positioning box */
+/* THIS is the centered "container" inside the white area */
+.content > *{
+  width:100%;
+  max-width: var(--container-w);
+}
+
+/* =========================
+   FAMILY PAGE SPECIALS
+   ========================= */
+
+/* ensure family page is positioning box for meta dates */
 .family-page{
-  position: relative;
-  padding-top: 34px;   /* creates space for dates */
+  position:relative;
+  padding-top:34px; /* space for Published/Updated */
 }
 
+/* Published/Updated (top-right INSIDE white area) */
 .family-page .meta-dates{
-  position: absolute;
-  top: 6px;
-  right: 0;            /* right side of the family content */
-  text-align: right;
-  font-size: 12px;
-  color: #444;
-  line-height: 1.35;
+  position:absolute;
+  top:6px;
+  right:0;               /* right edge of centered container */
+  text-align:right;
+  font-size:12px;
+  color:#444;
+  line-height:1.35;
   font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-  font-weight: 700;
+  font-weight:700;
 }
 
-/* SIDEBAR (INDEX) */
-:root{
-  --bg:#6f0d0d;
-  --accent:#ffd200;
-  --cream:#f5e6c8;
-  --white:#ffffff;
-  --text:#111;
+/* Family title centered */
+.family-page h2{
+  margin:10px 0 14px;
+  text-align:center;
+  font-size:20px;
+  font-weight:700;
+  color:#111;
 }
 
-/* RIGHT SIDEBAR (same as Home) */
+/* Table wrapper */
+.table-wrap{
+  width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+.family-table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  background:#fff;
+  color:#111;
+}
+
+.family-table th,
+.family-table td{
+  border:1px solid #9f9f9f;
+  padding:4px 8px;
+  vertical-align:top;
+  font-size:14px;
+  overflow-wrap:anywhere;
+}
+
+.family-table th{
+  font-weight:800;
+  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  font-size:13px;
+}
+
+/* column widths */
+.family-table th:nth-child(1),
+.family-table td:nth-child(1){
+  width:6%;
+  text-align:left;
+}
+.family-table th:nth-child(2),
+.family-table td:nth-child(2){
+  width:59%;
+  text-align:left;
+}
+.family-table th:nth-child(3),
+.family-table td:nth-child(3){
+  width:35%;
+  text-align:left;
+}
+
+/* italic scientific name only if you wrap with <i> */
+.family-table td:nth-child(2) i{
+  font-style:italic;
+}
+
+/* =========================
+   SIDEBAR (INDEX) - MATCH HOME
+   ========================= */
+
 .sidebar{
-  width: 320px;
-  padding: 30px 28px;
-  background: #6f0d0d;
-  border-left: 2px solid #000;
+  width: var(--sidebar-w);
+  background: var(--maroon);
+  padding:28px 12px 12px;  /* same feel as home */
+  border-left:2px solid #000;
 }
 
 .sidebar h2{
-  margin: 18px 0 10px 12px;
-  text-align: left;
+  margin:18px 0 10px 12px;
+  text-align:left;
   font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-  letter-spacing: 3px;
-  font-size: 18px;
-  font-weight: 900;
+  letter-spacing:3px;
+  font-size:18px;
+  font-weight:900;
+  color:#fff;
 }
 
 .nav{
-  list-style: none;
-  margin: 0;
-  padding-left: 12px;
+  list-style:none;
+  margin:0;
+  padding-left:12px;
   font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.4;
-  font-weight: 700;
+  font-size:14px;
+  line-height:1.4;
+  font-weight:700;
 }
 
 .nav li{
-  display: flex;
-  gap: 10px;
-  align-items: baseline;
+  display:flex;
+  gap:10px;
+  align-items:baseline;
 }
 
 .nav li::before{
-  content: "·";
-  font-size: 16px;
+  content:"•";
+  color:#fff;
 }
 
 .nav a{
-  color: #fff;
-  text-decoration: none;
+  color:#fff;
+  text-decoration:none;
 }
+
 .nav a:hover{
-  text-decoration: underline;
+  text-decoration:underline;
 }
 
- /* =========================================================
-       MOBILE: DO NOT CHANGE LAYOUT (NO stacking, NO fragmenting)
-       Just shrink everything and allow horizontal scroll if needed
-    ========================================================== */
-    @media (max-width: 900px){
-      body{
-        overflow-x:auto; /* keep design, allow scroll */
-      }
-
-      /* scale everything down */
-      .page-scale{
-        transform: scale(0.85);
-        transform-origin: top left;
-        width: calc(100% / 0.85);
-      }
-    }
-
-    @media (max-width: 600px){
-      body{
-        overflow-x:auto;
-      }
-
-      .page-scale{
-        transform: scale(0.75);
-        transform-origin: top left;
-        width: calc(100% / 0.75);
-      }
-    }
-
-    @media (max-width: 420px){
-      body{
-        overflow-x:auto;
-      }
-
-      .page-scale{
-        transform: scale(0.68);
-        transform-origin: top left;
-        width: calc(100% / 0.68);
-      }
-    }
 /* =========================
-   FOOTER (maroon like header)
+   FOOTER (same maroon as header)
    ========================= */
+
 .site-footer{
-  background:#6f0d0d;
+  background: var(--maroon);
   color:#f5e6c8;
   text-align:center;
   padding:18px 10px 16px;
@@ -195,6 +248,39 @@ body{
 }
 
 .site-footer .footer-text{
-  margin-top:8px;
   font-size:11px;
+  opacity:0.9;
+  margin-top:6px;
+}
+
+/* =========================
+   MOBILE: DO NOT CHANGE LAYOUT
+   (your original rule: no stacking)
+   ========================= */
+
+@media (max-width: 900px){
+  body{ overflow-x:auto; }
+  .page-scale{
+    transform: scale(0.85);
+    transform-origin: top left;
+    width: calc(100% / 0.85);
+  }
+}
+
+@media (max-width: 600px){
+  body{ overflow-x:auto; }
+  .page-scale{
+    transform: scale(0.75);
+    transform-origin: top left;
+    width: calc(100% / 0.75);
+  }
+}
+
+@media (max-width: 420px){
+  body{ overflow-x:auto; }
+  .page-scale{
+    transform: scale(0.65);
+    transform-origin: top left;
+    width: calc(100% / 0.65);
+  }
 }
