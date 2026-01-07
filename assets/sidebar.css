@@ -1,0 +1,47 @@
+.sidebar{
+  width:140px;
+  background:var(--maroon);
+  padding:26px 10px 28px 12px;   /* adjust top spacing here */
+  border-left:2px solid #000;
+}
+
+.sidebar h2{
+  margin:18px 0 10px 12px;
+  text-align:left;
+  font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  letter-spacing:3px;
+  font-size:18px;
+  font-weight:900;
+  color:#fff;
+}
+
+.nav{
+  list-style:none;
+  margin:0;
+  padding-left:12px;
+  font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  font-size:14px;
+  line-height:1.4;
+  font-weight:700;
+}
+
+.nav li{
+  display:flex;
+  gap:10px;
+  align-items:baseline;
+  margin:4px 0;
+}
+
+.nav li::before{
+  content:"•";
+  color:#fff;
+}
+
+.nav a{
+  color:#fff;
+  text-decoration:none;
+}
+
+.nav a:hover{
+  text-decoration:underline;
+}
