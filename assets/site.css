@@ -61,10 +61,11 @@ body{
 
 /* SIDEBAR (INDEX) */
 .sidebar{
-  width:140px;
+  width: 140px;
   background:#6f0d0d;
-  padding:30px 4px;
+  padding: 26px 16px 26px 12px;   /* more right space */
   border-left:2px solid #000;
+  overflow-wrap: anywhere;        /* prevent overflow */
 }
 .sidebar h2{
       margin: 34px 0 14px 12px;
