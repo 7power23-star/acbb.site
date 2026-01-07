@@ -1,0 +1,37 @@
+.site-footer{
+  background:var(--maroon);
+  color:#f5e6c8;
+  text-align:center;
+  padding:18px 10px 16px;
+  border-top:2px solid #000;
+}
+
+.site-footer .footer-line{
+  border-top:2px solid #f5e6c8;
+  margin:10px auto;
+  max-width:98%;
+}
+
+.site-footer .footer-nav{
+  display:flex;
+  justify-content:center;
+  gap:140px;
+  font-family:"Georgia","Times New Roman",serif;
+  font-size:18px;
+  font-weight:700;
+}
+
+.site-footer .footer-nav a{
+  color:#f5e6c8;
+  text-decoration:none;
+}
+
+.site-footer .footer-nav a:hover{
+  text-decoration:underline;
+}
+
+.site-footer .footer-text{
+  font-size:11px;
+  opacity:0.9;
+  margin-top:6px;
+}
