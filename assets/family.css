@@ -88,11 +88,6 @@
   font-style: italic;
 }
 
-/* If you want the whole scientific-name column italic (even without <i>) */
-.family-table td:nth-child(2){
-  font-style: italic;
-}
-
 /* But keep author/year in normal style if it is not inside <i>:
    If your HTML uses <i> only for the Latin name, remove the rule above:
    .family-table td:nth-child(2){ font-style: italic; }
