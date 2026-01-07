@@ -1,9 +1,8 @@
 :root{
-  --maroon:#6f0d0d;
-  --gold:#ffd200;
-  --bg:var(--maroon);
-  --paper:#fff;
-  --ink:#111;
+  --bg-1: #6b0000;     /* put your real home value */
+  --maroon: #6b0000;   /* keep both if you use both */
+  --border: #000;
+  --cream: #fff7e0;
 }
 
 *{ box-sizing:border-box; }
