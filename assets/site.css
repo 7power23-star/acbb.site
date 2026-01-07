@@ -148,34 +148,6 @@ body{
         width: calc(100% / 0.68);
       }
     }
-  </style>
-</head>
-
-<body>
-  <!-- Wrap whole page in scale container -->
-  <div class="page-scale">
-
-    <header class="topbar">
-      <h1>A Checklist of Butterflies of Bangladesh</h1>
-      <p>An academic reference website listing butterfly species recorded in Bangladesh</p>
-    </header>
-
-     <!-- Right sidebar index -->
-      <aside class="sidebar">
-        <h2>INDEX</h2>
-        <ul class="nav">
-          <li><a href="Families/papilionidae.html">Papilionidae</a></li>
-          <li><a href="Families/pieridae.html">Pieridae</a></li>
-          <li><a href="Families/nymphalidae.html">Nymphalidae</a></li>
-          <li><a href="Families/riodinidae.html">Riodinidae</a></li>
-          <li><a href="Families/lycaenidae.html">Lycaenidae</a></li>
-          <li><a href="Families/hesperiidae.html">Hesperiidae</a></li>
-          <li><a href="complete%20checklist.html">Checklist</a></li>
-          <li><a href="butterflies-of-bangladesh-checklist.pdf">PDF 2015</a></li>
-          <li><a href="index.html">Home Page</a></li>
-        </ul>
-      </aside>
-    </div>
 /* =========================
    FOOTER (maroon like header)
    ========================= */
@@ -212,7 +184,6 @@ body{
 }
 
 .site-footer .footer-text{
-  margin-top:10px;
-  font-size:12px;
-  opacity:.95;
+  margin-top:8px;
+  font-size:11px;
 }
