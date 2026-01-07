@@ -1,0 +1,22 @@
+.topbar{
+  padding:14px 40px 10px;
+  text-align:center;
+  background:var(--maroon);
+  border-bottom:2px solid #000;
+}
+
+.topbar h1{
+  margin:0;
+  font-style:italic;
+  font-weight:700;
+  font-size:22px;
+  line-height:1.15;
+  color:#fff;
+}
+
+.topbar p{
+  margin:4px 0 0;
+  color:var(--gold);
+  font-size:13px;
+  font-weight:700;
+}
