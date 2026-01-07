@@ -45,6 +45,22 @@ body{
   padding:18px 22px;
   position:relative;
 }
+/* LEFT CONTENT (same as Home) */
+.content{
+  flex: 1;
+  padding: 20px 40px;
+  min-width: 0;
+  background: transparent;
+  color: #111;
+}
+
+/* White panel (same as Home) */
+.panel{
+  background: #ffffff;
+  color: #111;
+  padding: 30px 36px;
+  min-height: 420px;
+}
 
 /* the family block is the positioning box */
 .family-page{
@@ -73,52 +89,50 @@ body{
   --text:#111;
 }
 
-/* RIGHT SIDEBAR (INDEX) — match home */
+/* RIGHT SIDEBAR (same as Home) */
 .sidebar{
-  width:140px;                 /* same width */
-  background:var(--bg);
-  padding:30px 18px 30px 14px; /* more space on right */
-  border-left:2px solid #000;
+  width: 320px;
+  padding: 30px 28px;
+  background: #6f0d0d;
+  border-left: 2px solid #000;
 }
 
 .sidebar h2{
-  margin:34px 0 12px 0;
-  text-align:left;             /* aligned with links */
-  font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
-  letter-spacing:3px;
-  font-size:16px;
-  font-weight:900;
-  color:#fff;
+  margin: 18px 0 10px 12px;
+  text-align: left;
+  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  letter-spacing: 3px;
+  font-size: 18px;
+  font-weight: 900;
 }
 
 .nav{
-  list-style:none;
-  margin:0;
-  padding-left:12px;
-  font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
-  font-size:14px;
-  line-height:1.35;
-  font-weight:700;
+  list-style: none;
+  margin: 0;
+  padding-left: 12px;
+  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 700;
 }
 
 .nav li{
-  display:flex;
-  gap:10px;
-  align-items:baseline;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
 }
 
 .nav li::before{
-  content:"·";
-  opacity:.95;
+  content: "·";
+  font-size: 16px;
 }
 
 .nav a{
-  color:#fff;
-  text-decoration:none;
+  color: #fff;
+  text-decoration: none;
 }
-
 .nav a:hover{
-  text-decoration:underline;
+  text-decoration: underline;
 }
 
  /* =========================================================
