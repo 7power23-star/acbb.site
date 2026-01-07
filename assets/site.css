@@ -1,38 +1,45 @@
-/* =========================
-   GLOBAL LAYOUT (HOME + FAMILY PAGES)
-   ========================= */
+/* =========================================================
+   A Checklist of Butterflies of Bangladesh
+   Global stylesheet (Home + Family pages)
+========================================================= */
 
+/* ---------- BASE ---------- */
 :root{
-  --bg: #000;            /* page background (outside white area) */
-  --maroon: #6f0d0d;     /* header + sidebar + footer */
-  --gold: #ffd200;       /* subtitle color */
-  --sidebar-w: 130px;    /* <<< change this if your home sidebar is different */
-  --container-w: 980px;  /* <<< content width inside white area (home feel) */
+  --maroon:#6f0d0d;
+  --gold:#ffd200;
+  --ink:#111;
+  --paper:#fff;
 }
 
-*{ box-sizing: border-box; }
+*{ box-sizing:border-box; }
+
+html, body{ height:100%; }
 
 body{
   margin:0;
   font-family:"Georgia","Times New Roman",serif;
-  background: var(--bg);
-  color:#fff;
+  background: var(--paper);   /* IMPORTANT: removes black strip */
+  color: var(--ink);
 }
 
-/* =========================
-   HEADER (same for all pages)
-   ========================= */
+/* If you have old scale wrappers, neutralize them */
+.page-scale{
+  transform:none;
+  transform-origin: top left;
+  width:100%;
+}
 
+/* ---------- HEADER (HOME STYLE) ---------- */
 .topbar{
   padding:14px 40px 10px;
   text-align:center;
-  background: var(--maroon);
+  background:var(--maroon);
   border-bottom:2px solid #000;
 }
 
 .topbar h1{
   margin:0;
-  font-style: italic;
+  font-style:italic;
   font-weight:700;
   font-size:22px;
   line-height:1.15;
@@ -41,138 +48,41 @@ body{
 
 .topbar p{
   margin:4px 0 0;
-  color: var(--gold);
+  color:var(--gold);
   font-size:13px;
   font-weight:700;
 }
 
-/* =========================
-   MAIN AREA (white + sidebar)
-   ========================= */
-
+/* ---------- MAIN LAYOUT (WHITE + SIDEBAR) ---------- */
 .main{
   display:flex;
   align-items:stretch;
-  min-height: calc(100vh - 112px); /* header + footer space (ok if footer exists) */
+  min-height: calc(100vh - 110px); /* header + footer space (safe) */
   border-bottom:2px solid #000;
+  background: var(--paper);
 }
 
-/* WHITE CONTENT AREA */
+/* White content area */
 .content{
   flex:1;
-  background:#fff;
-  color:#111;
-  padding:18px 22px;
+  background:var(--paper);
+  color:var(--ink);
+  padding:28px 40px;
   position:relative;
-
-  /* IMPORTANT: makes content centered like HOME */
-  display:flex;
-  justify-content:center;
+  overflow-x:auto; /* keeps tables safe */
 }
 
-/* THIS is the centered "container" inside the white area */
-.content > *{
-  width:100%;
-  max-width: var(--container-w);
-}
-
-/* =========================
-   FAMILY PAGE SPECIALS
-   ========================= */
-
-/* ensure family page is positioning box for meta dates */
-.family-page{
-  position:relative;
-  padding-top:34px; /* space for Published/Updated */
-}
-
-/* Published/Updated (top-right INSIDE white area) */
-.family-page .meta-dates{
-  position:absolute;
-  top:6px;
-  right:0;               /* right edge of centered container */
-  text-align:right;
-  font-size:12px;
-  color:#444;
-  line-height:1.35;
-  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-  font-weight:700;
-}
-
-/* Family title centered */
-.family-page h2{
-  margin:10px 0 14px;
-  text-align:center;
-  font-size:20px;
-  font-weight:700;
-  color:#111;
-}
-
-/* Table wrapper */
-.table-wrap{
-  width:100%;
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-}
-
-.family-table{
-  width:100%;
-  border-collapse:collapse;
-  table-layout:fixed;
-  background:#fff;
-  color:#111;
-}
-
-.family-table th,
-.family-table td{
-  border:1px solid #9f9f9f;
-  padding:4px 8px;
-  vertical-align:top;
-  font-size:14px;
-  overflow-wrap:anywhere;
-}
-
-.family-table th{
-  font-weight:800;
-  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-  font-size:13px;
-}
-
-/* column widths */
-.family-table th:nth-child(1),
-.family-table td:nth-child(1){
-  width:6%;
-  text-align:left;
-}
-.family-table th:nth-child(2),
-.family-table td:nth-child(2){
-  width:59%;
-  text-align:left;
-}
-.family-table th:nth-child(3),
-.family-table td:nth-child(3){
-  width:35%;
-  text-align:left;
-}
-
-/* italic scientific name only if you wrap with <i> */
-.family-table td:nth-child(2) i{
-  font-style:italic;
-}
-
-/* =========================
-   SIDEBAR (INDEX) - MATCH HOME
-   ========================= */
-
+/* ---------- SIDEBAR (MATCH HOME) ---------- */
 .sidebar{
-  width: var(--sidebar-w);
-  background: var(--maroon);
-  padding:28px 12px 12px;  /* same feel as home */
+  width:220px;                 /* ✅ fixed width like home */
+  background:var(--maroon);
+  padding:24px 18px 24px;      /* ✅ controls top distance */
   border-left:2px solid #000;
 }
 
+/* Sidebar title */
 .sidebar h2{
-  margin:18px 0 10px 12px;
+  margin:0 0 14px 0;           /* ✅ same top distance */
   text-align:left;
   font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   letter-spacing:3px;
@@ -181,6 +91,7 @@ body{
   color:#fff;
 }
 
+/* Sidebar list */
 .nav{
   list-style:none;
   margin:0;
@@ -195,6 +106,7 @@ body{
   display:flex;
   gap:10px;
   align-items:baseline;
+  margin:4px 0;
 }
 
 .nav li::before{
@@ -211,12 +123,82 @@ body{
   text-decoration:underline;
 }
 
-/* =========================
-   FOOTER (same maroon as header)
-   ========================= */
+/* ---------- FAMILY PAGE: Published/Updated (right side only) ---------- */
+.family-page{
+  position:relative;
+  padding-top:32px; /* room for meta-dates */
+}
 
+.family-page .meta-dates{
+  position:absolute;
+  top:0;
+  right:0;
+  text-align:right;
+  font-size:12px;
+  color:#111;
+  line-height:1.35;
+  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  font-weight:700;
+}
+
+/* Family heading spacing */
+.family-page h2{
+  margin:0 0 10px 0;
+}
+
+/* Tables */
+.table-wrap{ overflow-x:auto; }
+
+.family-table{
+  width:100%;
+  border-collapse:collapse;
+  color:#111;
+}
+
+.family-table th,
+.family-table td{
+  padding:6px 8px;
+  vertical-align:top;
+}
+
+.family-table th{
+  text-align:left;
+  font-weight:700;
+  border-bottom:1px solid #999;
+}
+
+.family-table td{
+  border-bottom:1px solid #ddd;
+}
+
+/* ---------- HOME PAGE PHOTO AREA (optional, safe defaults) ---------- */
+.photo-grid{
+  display:flex;
+  gap:28px;
+  justify-content:center;
+  align-items:flex-start;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+
+.photo-card{
+  text-align:center;
+  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  color:#111;
+  font-size:12px;
+  font-weight:700;
+}
+
+.photo-card img{
+  display:block;
+  max-width:360px;
+  height:auto;
+  border:2px solid #000;
+}
+
+/* ---------- FOOTER (MAROON LIKE HEADER) ---------- */
 .site-footer{
-  background: var(--maroon);
+  background:var(--maroon);
   color:#f5e6c8;
   text-align:center;
   padding:18px 10px 16px;
@@ -236,6 +218,7 @@ body{
   font-family:"Georgia","Times New Roman",serif;
   font-size:18px;
   font-weight:700;
+  margin:10px 0;
 }
 
 .site-footer .footer-nav a{
@@ -248,39 +231,13 @@ body{
 }
 
 .site-footer .footer-text{
+  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   font-size:11px;
-  opacity:0.9;
-  margin-top:6px;
+  opacity:0.95;
+  margin-top:8px;
 }
 
-/* =========================
-   MOBILE: DO NOT CHANGE LAYOUT
-   (your original rule: no stacking)
-   ========================= */
-
+/* ---------- MOBILE: keep layout (no stacking), allow scroll ---------- */
 @media (max-width: 900px){
   body{ overflow-x:auto; }
-  .page-scale{
-    transform: scale(0.85);
-    transform-origin: top left;
-    width: calc(100% / 0.85);
-  }
-}
-
-@media (max-width: 600px){
-  body{ overflow-x:auto; }
-  .page-scale{
-    transform: scale(0.75);
-    transform-origin: top left;
-    width: calc(100% / 0.75);
-  }
-}
-
-@media (max-width: 420px){
-  body{ overflow-x:auto; }
-  .page-scale{
-    transform: scale(0.65);
-    transform-origin: top left;
-    width: calc(100% / 0.65);
-  }
 }
