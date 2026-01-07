@@ -1,0 +1,16 @@
+.main{
+  display:flex;
+  align-items:stretch;
+  min-height:calc(100vh - 113px); /* keep your header+footer math if you used it */
+  border-bottom:2px solid #000;
+  background:var(--paper);
+}
+
+.content{
+  flex:1;
+  background:#fff;
+  color:var(--ink);
+  padding:18px 22px;
+  position:relative;
+  overflow-x:auto;
+}
