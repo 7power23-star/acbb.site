@@ -97,3 +97,23 @@
   font-style: normal;
   white-space: nowrap;
 }
+/* Clickable species links */
+.species-link{
+  text-decoration: none;
+  color: #000;
+}
+
+.species-link:hover .sci-name{
+  text-decoration: underline;
+}
+
+/* Latin name */
+.sci-name{
+  font-style: italic;
+}
+
+/* Author & year */
+.author{
+  font-style: normal;
+  white-space: nowrap;
+}
