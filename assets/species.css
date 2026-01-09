@@ -1,0 +1,137 @@
+/* ================================
+   SPECIES PAGES
+   File: assets/species.css
+   ================================ */
+
+.species-page{
+  padding: 18px 22px 28px;
+}
+
+/* Title + common name (center like your image) */
+.species-title{
+  margin: 6px 0 4px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+}
+
+.species-title i{
+  font-style: italic;
+}
+
+.species-common{
+  margin: 0 0 18px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* Two photos side-by-side */
+.species-images{
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto 22px;
+  max-width: 980px;
+}
+
+.species-images figure{
+  margin: 0;
+  width: 46%;
+}
+
+.species-images img{
+  width: 100%;
+  display: block;
+  border: 1px solid #777; /* subtle like screenshot */
+  background: #fff;
+}
+
+.species-images figcaption{
+  padding: 6px 2px 0;
+  font-size: 14px;
+  color: #000;
+  display: flex;
+  justify-content: space-between; /* date left, © right */
+  gap: 10px;
+}
+
+/* Distribution text + map box (big bordered rectangle) */
+.distribution-box{
+  display: flex;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto 26px;
+  border: 2px solid #000;
+  background: #fff;
+  min-height: 260px;
+}
+
+.distribution-text{
+  flex: 1;
+  padding: 14px 14px;
+  font-size: 18px;
+  line-height: 1.35;
+  border-right: 2px solid #000; /* middle divider like image */
+}
+
+.distribution-map{
+  width: 42%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.distribution-map img{
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  display: block;
+  border: 1px solid #777;
+  background: #fff;
+}
+
+/* Literature section */
+.literature{
+  max-width: 980px;
+  margin: 0 auto;
+  color: #000;
+}
+
+.literature h4{
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.literature p{
+  margin: 0 0 16px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px){
+  .species-images{
+    flex-direction: column;
+    align-items: center;
+  }
+  .species-images figure{
+    width: 92%;
+  }
+
+  .distribution-box{
+    flex-direction: column;
+  }
+  .distribution-text{
+    border-right: none;
+    border-bottom: 2px solid #000;
+  }
+  .distribution-map{
+    width: 100%;
+  }
+}
