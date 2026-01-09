@@ -1,261 +1,237 @@
 /* =========================================
-   SPECIES PAGES (photos + record/map + literature)
+   SPECIES PAGE STYLES
    File: assets/species.css
-   Works for: 0/1/2/10+ photos, optional map, optional literature
+   Works for: 0/1/2/many photos + captions,
+              record-place + map single box,
+              literature records
    ========================================= */
 
-/* Main species page wrapper */
+
+/* =========================
+   Page wrapper
+   ========================= */
+
 .species-page{
   max-width: 980px;
   margin: 0 auto;
-  padding: 12px 10px 30px;
+  padding: 12px 20px 30px;
 }
 
-/* -------------------------
+
+/* =========================
    Title block
-   ------------------------- */
+   ========================= */
+
 .species-title{
   text-align: center;
-  margin: 6px 0 16px;
+  margin: 6px 0 8px;
 }
 
 .species-title h2{
   margin: 0;
   font-size: 22px;
   font-weight: 700;
-  color: #000;
   line-height: 1.25;
 }
 
-/* scientific name italic part */
 .species-title .sci{
   font-style: italic;
   font-weight: 700;
 }
 
-/* author part normal */
 .species-title .author{
   font-style: normal;
   font-weight: 500;
 }
 
-/* common name (2nd line) */
 .species-title .common{
-  margin-top: 4px;
+  margin-top: 6px;
   font-size: 18px;
   font-weight: 500;
-  color: #000;
 }
 
-/* -------------------------
-   Photos section
-   Supports 0/1/2/10+ photos automatically
-   ------------------------- */
 
-/* Optional message if no photo */
-.no-photos{
-  text-align: center;
-  margin: 14px 0 20px;
-  font-size: 14px;
-  color: #000;
-}
+/* =========================
+   Photos section (0/1/2/many)
+   ========================= */
 
-/* Grid photo gallery */
+/* Container for photo section */
 .species-photos{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;
-  align-items: start;
-  margin: 0 0 18px;
+  margin: 18px 0 10px;
 }
 
-/* You can use <figure> or <div class="photo"> */
-.species-photos figure,
-.species-photos .photo{
-  margin: 0;
-  padding: 0;
+
+/* Grid supports any number of photos automatically */
+.photo-grid,
+.photos{
+  display: grid;
+  gap: 22px;
+  justify-items: center;
+  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Each photo block */
+.photo,
+.photo-item{
+  width: 100%;
+  max-width: 480px;
 }
 
 /* Images */
-.species-photos img{
+.photo img,
+.photo-item img{
   width: 100%;
   height: auto;
   display: block;
   border: 0;
 }
 
-/* Caption line under each photo */
-.species-photos figcaption,
-.species-photos .caption{
+/* Captions under image */
+.photo .caption,
+.photo-item .caption,
+.photo figcaption,
+.photo-item figcaption{
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.35;
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  margin-top: 6px;
-  font-size: 13px;
-  color: #000;
-  line-height: 1.25;
-}
-
-.species-photos figcaption span,
-.species-photos .caption span{
   white-space: nowrap;
 }
 
-.species-photos figcaption .left,
-.species-photos .caption .left{
+.photo .caption span,
+.photo-item .caption span{
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.species-photos figcaption .right,
-.species-photos .caption .right{
-  margin-left: auto;
+.photo .caption .left,
+.photo-item .caption .left{
+  text-align: left;
 }
 
-/* -------------------------
-   Recorded place + Map block
-   Works if:
-   - both exist
-   - only recorded place exists
-   - only map exists
-   ------------------------- */
+.photo .caption .right,
+.photo-item .caption .right{
+  text-align: right;
+}
 
-/* Outer bordered box (same as your screenshot) */
+
+/* =========================
+   Recorded place + Map
+   (SINGLE SHARED BLACK BOX)
+   ========================= */
+
 .record-map{
   display: grid;
-  grid-template-columns: 1.55fr 0.85fr;
+  grid-template-columns: 1.2fr 0.8fr; /* text | map */
   border: 2px solid #000;
-  margin: 18px 0 18px;
-  min-height: 260px;
+  margin: 22px 0;
+  align-items: stretch;
 }
 
-/* Left text area */
-.record-box{
-  padding: 12px 14px;
-  border-right: 2px solid #000;
-  min-height: 260px;
-}
-
-.record-title{
-  font-size: 20px;
-  font-weight: 500;
-  margin: 0 0 8px;
-  color: #000;
-}
-
+/* Left area */
 .record-text{
-  font-size: 18px;
-  line-height: 1.35;
-  margin: 0;
-  color: #000;
+  padding: 10px 12px;
+  font-size: 16px;
+  line-height: 1.4;
 }
 
-/* Right map area */
+/* Right area */
 .map-box{
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
 }
 
+/* Map image default size (half) */
 .map-box img{
-  max-width: 50%;
+  width: 50%;
   height: auto;
+  display: block;
 }
 
+/* If you want different size for some pages:
+   add class on record-map:
+   <div class="record-map map-small"> ... </div>
+*/
+.record-map.map-small .map-box img{ width: 40%; }
+.record-map.map-big .map-box img{ width: 70%; }
 
-/* If only one of the two exists:
-   - remove border split and fill full width */
-.record-map.only-text{
-  grid-template-columns: 1fr;
-}
-.record-map.only-text .record-box{
-  border-right: 0;
-}
 
-.record-map.only-map{
-  grid-template-columns: 1fr;
-}
-.record-map.only-map .record-box{
-  display: none;
-}
-
-/* -------------------------
+/* =========================
    Literature section
-   ------------------------- */
+   ========================= */
+
 .literature{
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .lit-title{
   font-size: 20px;
   font-weight: 500;
-  margin: 0 0 8px;
-  color: #000;
-}
-
-.literature p{
-  font-size: 18px;
-  line-height: 1.45;
-  margin: 0 0 14px;
-  color: #000;
-}
-
-/* If you use <ul> */
-.literature ul{
-  margin: 0 0 14px 18px;
-  padding: 0;
-}
-
-.literature li{
-  font-size: 18px;
-  line-height: 1.45;
   margin: 0 0 10px;
 }
 
-/* -------------------------
-   Responsive (mobile)
-   ------------------------- */
-@media (max-width: 820px){
-  .species-page{
-    padding: 10px 10px 24px;
-  }
+/* Each record paragraph */
+.literature p{
+  font-size: 16px;
+  line-height: 1.45;
+  margin: 0 0 14px;
+}
 
-  /* stack text+map vertically */
+/* For italic part inside record (like journal name) */
+.literature em{
+  font-style: italic;
+}
+
+
+/* =========================
+   Links (if used)
+   ========================= */
+
+.back-links{
+  margin-top: 18px;
+  display: flex;
+  gap: 14px;
+}
+
+.back-links a{
+  text-decoration: none;
+}
+
+.back-links a:hover{
+  text-decoration: underline;
+}
+
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 768px){
+
+  /* Photos already wrap nicely via grid */
+
+  /* Record + map becomes stacked */
   .record-map{
     grid-template-columns: 1fr;
   }
 
-  .record-box{
-    border-right: 0;
-    border-bottom: 2px solid #000;
-    min-height: auto;
+  /* Map slightly larger on phone */
+  .map-box img{
+    width: 70%;
   }
 
-  .map-box{
-    min-height: 220px;
-  }
-}
-
-@media (max-width: 520px){
-  .species-title h2{
-    font-size: 20px;
-  }
-  .species-title .common{
-    font-size: 16px;
-  }
-
-  /* smaller photo min width */
-  .species-photos{
-    grid-template-columns: 1fr;
-  }
-
-  .record-title,
-  .lit-title{
-    font-size: 18px;
-  }
-
-  .record-text,
-  .literature p,
-  .literature li{
-    font-size: 16px;
+  .photo .caption,
+  .photo-item .caption,
+  .photo figcaption,
+  .photo-item figcaption{
+    white-space: normal;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
   }
 }
