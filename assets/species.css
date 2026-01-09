@@ -152,19 +152,13 @@
 
 /* Right map area */
 .map-box{
-  padding: 0;
   display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-  min-height: 260px;
+  justify-content: flex-end;
 }
 
-/* Map image size control */
 .map-box img{
-  width: 50%;
+  max-width: 50%;
   height: auto;
-  display: block;
-  margin-left: auto;   /* keeps map aligned right */
 }
 
 
