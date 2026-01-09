@@ -1,40 +1,29 @@
-/* =========================================
-   SPECIES PAGE STYLES
+/* ================================
+   SPECIES PAGES
    File: assets/species.css
-   Works for: 0/1/2/many photos + captions,
-              record-place + map single box,
-              literature records
-   ========================================= */
-
-
-/* =========================
-   Page wrapper
-   ========================= */
+   Works for: 0 photo, 1 photo, 2 photos, 3+ photos (grid)
+   Recorded-place + map box stays attached
+   ================================ */
 
 .species-page{
   max-width: 980px;
   margin: 0 auto;
-  padding: 12px 20px 30px;
+  padding: 18px 16px 28px;
 }
 
-
-/* =========================
-   Title block
-   ========================= */
-
+/* ---------- Title block ---------- */
 .species-title{
   text-align: center;
-  margin: 6px 0 8px;
+  margin: 8px 0 14px;
 }
 
-.species-title h2{
-  margin: 0;
+.species-title .sci{
   font-size: 22px;
   font-weight: 700;
   line-height: 1.25;
 }
 
-.species-title .sci{
+.species-title .sci em{
   font-style: italic;
   font-weight: 700;
 }
@@ -50,188 +39,133 @@
   font-weight: 500;
 }
 
+/* ---------- Photo gallery (0–10+) ---------- */
+/* Put photos inside: <section class="species-gallery"> ... </section>
+   If you have NO photos, just skip the whole section. */
 
-/* =========================
-   Photos section (0/1/2/many)
-   ========================= */
-
-/* Container for photo section */
-.species-photos{
-  margin: 18px 0 10px;
+.species-gallery{
+  margin: 12px 0 16px;
 }
 
-
-/* Grid supports any number of photos automatically */
-.photo-grid,
-.photos{
+/* auto grid: 1,2,3,4... photos will arrange automatically */
+.species-gallery .grid{
   display: grid;
-  gap: 22px;
-  justify-items: center;
-  align-items: start;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px;
 }
 
-/* Each photo block */
-.photo,
-.photo-item{
-  width: 100%;
-  max-width: 480px;
+/* each photo card */
+.species-gallery figure{
+  margin: 0;
+  border: 1px solid #333;
+  background: #fff;
 }
 
-/* Images */
-.photo img,
-.photo-item img{
+/* image */
+.species-gallery img{
   width: 100%;
   height: auto;
   display: block;
-  border: 0;
 }
 
-/* Captions under image */
-.photo .caption,
-.photo-item .caption,
-.photo figcaption,
-.photo-item figcaption{
-  margin-top: 6px;
-  font-size: 14px;
-  line-height: 1.35;
+/* caption row under photo (left + right) */
+.species-gallery figcaption{
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  white-space: nowrap;
+  gap: 12px;
+  padding: 4px 10px;
+  font-size: 13px;
+  line-height: 1.25;
+  border-top: 1px solid #333;
 }
 
-.photo .caption span,
-.photo-item .caption span{
+.species-gallery figcaption span{
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.photo .caption .left,
-.photo-item .caption .left{
-  text-align: left;
-}
-
-.photo .caption .right,
-.photo-item .caption .right{
-  text-align: right;
-}
-
-
-/* =========================
-   Recorded place + Map
-   (SINGLE SHARED BLACK BOX)
-   ========================= */
-
+/* ---------- Recorded place + Map (attached border) ---------- */
 .record-map{
+  margin: 14px 0 18px;
+}
+
+/* Outer border box */
+.record-map .wrap{
+  border: 2px solid #333;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr; /* text | map */
-  border: 2px solid #000;
-  margin: 22px 0;
-  align-items: stretch;
+  grid-template-columns: 1fr auto;
+  min-height: 160px;
 }
 
-/* Left area */
-.record-text{
+/* Left text area */
+.record-map .record-box{
   padding: 10px 12px;
-  font-size: 16px;
-  line-height: 1.4;
 }
 
-/* Right area */
-.map-box{
+/* Divider between text and map */
+.record-map .map-box{
+  border-left: 2px solid #333;
+  width: 190px;           /* default map width */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 6px;
 }
 
-/* Map image default size (half) */
-.map-box img{
-  width: 50%;
-  height: auto;
+/* Map image fits box */
+.record-map .map-box img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-/* If you want different size for some pages:
-   add class on record-map:
-   <div class="record-map map-small"> ... </div>
-*/
-.record-map.map-small .map-box img{ width: 40%; }
-.record-map.map-big .map-box img{ width: 70%; }
-
-
-/* =========================
-   Literature section
-   ========================= */
-
-.literature{
-  margin-top: 10px;
+/* Recorded place title line */
+.record-map .record-title{
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 6px;
 }
 
-.lit-title{
+/* Recorded place text */
+.record-map .record-text{
   font-size: 20px;
-  font-weight: 500;
-  margin: 0 0 10px;
+  line-height: 1.25;
 }
 
-/* Each record paragraph */
+/* ---------- Literature ---------- */
+.literature{
+  margin-top: 8px;
+}
+
+.literature .lit-title{
+  font-size: 22px;
+  font-weight: 800;
+  margin: 8px 0 10px;
+}
+
 .literature p{
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.45;
-  margin: 0 0 14px;
+  margin: 0 0 12px;
 }
 
-/* For italic part inside record (like journal name) */
+.literature strong{
+  font-weight: 800;
+}
+
+/* Italic part inside paragraph */
 .literature em{
   font-style: italic;
 }
 
-
-/* =========================
-   Links (if used)
-   ========================= */
-
-.back-links{
-  margin-top: 18px;
-  display: flex;
-  gap: 14px;
-}
-
-.back-links a{
-  text-decoration: none;
-}
-
-.back-links a:hover{
-  text-decoration: underline;
-}
-
-
-/* =========================
-   Responsive
-   ========================= */
-
-@media (max-width: 768px){
-
-  /* Photos already wrap nicely via grid */
-
-  /* Record + map becomes stacked */
-  .record-map{
+/* ---------- Responsive ---------- */
+@media (max-width: 760px){
+  .record-map .wrap{
     grid-template-columns: 1fr;
   }
-
-  /* Map slightly larger on phone */
-  .map-box img{
-    width: 70%;
-  }
-
-  .photo .caption,
-  .photo-item .caption,
-  .photo figcaption,
-  .photo-item figcaption{
-    white-space: normal;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
+  .record-map .map-box{
+    width: 100%;
+    border-left: 0;
+    border-top: 2px solid #333;
+    min-height: 200px;
   }
 }
