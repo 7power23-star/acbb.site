@@ -159,13 +159,14 @@
   min-height: 260px;
 }
 
+/* Map image size control */
 .map-box img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 50%;
+  height: auto;
   display: block;
-  border: 0;
+  margin-left: auto;   /* keeps map aligned right */
 }
+
 
 /* If only one of the two exists:
    - remove border split and fill full width */
