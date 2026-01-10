@@ -2,95 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Taxila haquinus fasciata | Harlequin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Main CSS -->
+  <!-- Main site CSS (imports species.css inside) -->
   <link rel="stylesheet" href="../../../assets/site.css" />
 
-  <!-- Favicon (optional) -->
-  <link rel="icon" type="image/png" href="../../../assets/favicon.png" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../images/home/favi.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../../images/home/favi.png">
 </head>
 
 <body>
+  <div class="page-scale">
 
-  <!-- HEADER -->
-  <header class="topbar">
-    <h1>A Checklist of Butterflies of Bangladesh</h1>
-    <p>An academic reference website listing butterfly species recorded in Bangladesh</p>
-  </header>
+    <!-- SAME HEADER AS HOME -->
+    <header class="topbar">
+      <h1>A Checklist of Butterflies of Bangladesh</h1>
+      <p>An academic reference website listing butterfly species recorded in Bangladesh</p>
+    </header>
 
-  <!-- MAIN -->
-  <div class="main">
-    <section class="content">
+    <!-- MAIN layout -->
+    <div class="main">
+      <section class="content">
 
-      <article class="species-page">
+        <article class="species-page">
 
-        <!-- Title -->
-        <div class="species-title">
-          <h2>
-            <span class="sci">Taxila haquinus fasciata</span>
-            <span class="author">Moore, 1878</span>
-          </h2>
-          <div class="common">Harlequin</div>
-        </div>
-<div class="species-photos">
-
-  <figure class="photo">
-    <img src="ri/r04a.png" alt="Taxila haquinus fasciata dorsal view">
-    <figcaption>
-      30.11.2016, Moulvibazar &nbsp; © TR Shihan
-    </figcaption>
-  </figure>
-
-</div>
-
-        <!-- Recorded place + map -->
-        <section class="record-map">
-          <div class="record-box">
-            <div class="record-title">Recorded Place: Moulvibazar, Cox's Bazar</div>
+          <!-- Title -->
+          <div class="species-title">
+            <div class="sci">
+              <em>Taxila haquinus fasciata</em> <span class="author">Moore, 1878</span>
+            </div>
+            <div class="common">Harlequin</div>
           </div>
 
-          <div class="map-box">
-            <!-- Map image -->
-            <img src="ri/r04m.png" alt="Distribution map - Taxila haquinus fasciata" />
-          </div>
-        </section>
+          <!-- Photos (remove this whole section if no photos) -->
+          <section class="species-gallery">
+            <div class="grid">
 
-        <!-- Literature -->
-        <section class="literature">
-          <div class="lit-title">Literature Records:</div>
+              <figure>
+                <img src="ri/r04a.png" alt="Taxila haquinus fasciata photo A" />
+                <figcaption>
+                  <span>30.11.2016, Moulvibazar</span>
+                  <span>&copy; TR Shihan</span>
+                </figcaption>
+              </figure>
 
-          <p>
-            Chowdhury, S.H. &amp; M. Hossain, 2025; PP: 366;. Butterflies of Bangladesh-A Pictorial Handbook
+
+            </div>
+          </section>
+
+          <!-- Recorded place + map -->
+          <section class="record-map">
+            <div class="wrap">
+              <div class="record-box">
+                <div class="record-title">Recorded Place:</div>
+                <div class="record-text">
+                  Moulvibazar, Cox's Bazar
+                </div>
+              </div>
+
+              <div class="map-box">
+                <img src="ri/r04m.png" alt="Distribution map - Taxila haquinus fasciata" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Literature -->
+          <section class="literature">
+            <div class="lit-title">Literature Records:</div>
+
+            <p>
+              <strong>Chowdhury, S.H. &amp; M. Hossain,</strong>2025; PP: 366;. Butterflies of Bangladesh-A Pictorial Handbook
             (Revised and enlarged version II). Dhaka, Bangladesh, 260pp.
-          </p>
+            </p>
 
-          <p>
-            IUCN BANGLADESH. 2015. Red List of Bangladesh. Vol. 7: Butterflies. IUCN, International Union for 
+            <p>
+              <strong>IUCN BANGLADESH</strong>2015. Red List of Bangladesh. Vol. 7: Butterflies. IUCN, International Union for 
             Conservation of Nature, Bangladesh Country Office, Dhaka, Bangladesh xvi-400pp
-          </p>
-        </section>
+            </p>
 
-      </article>
+           </section>
 
-    </section>
-  </div>
+        </article>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-line"></div>
+      </section>
 
-    <nav class="footer-nav">
-      <a href="javascript:history.back()">Back</a>
-      <a href="../../../index.html">Home</a>
-    </nav>
-
-    <div class="footer-line"></div>
-    <div class="footer-text">
-      A Checklist of Butterflies of Bangladesh. Copyright © 2015-2026 TR Shihan.
     </div>
-  </footer>
 
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-line"></div>
+
+      <nav class="footer-nav">
+        <a class="back" href="/species/rio/rs/riodinidae.html">Back</a>
+        <a class="next" href="/species/rio/rs/zemeros-flegyas-flegyas.html">Next</a>
+        <a href="/index.html">Home</a>
+      </nav>
+
+      <div class="footer-line"></div>
+
+      <div class="footer-text">
+        A Checklist of Butterflies of Bangladesh. Copyright © 2015–2026 TR Shihan.
+      </div>
+    </footer>
+
+  </div><!-- end .page-scale -->
 </body>
 </html>
