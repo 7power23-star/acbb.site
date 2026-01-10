@@ -95,26 +95,30 @@
   border: 1px solid #333;
   display: grid;
   grid-template-columns: 1fr auto;
-  min-height: 150px;
+  min-height: 130px;
 }
 
 /* Left text area */
 .record-map .record-box{
-  padding: 10px 12px;
+  padding: 8px 12px;
 }
 
-/* Divider between text and map */
+/* Right map area */
 .record-map .map-box{
-  border-left: 1px solid #333;
-  width: 190px;           /* default map width */
   display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-left: 1px solid #333;
 }
 
-/* Map image fits box */
+/* Map image — FIXED SIZE */
 .record-map .map-box img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 140px;   /* ⬅ adjust width here */
+  max-height: 120px;  /* ⬅ adjust height here */
+  width: auto;
+  height: auto;
+  object-fit: contain;
   display: block;
 }
 
