@@ -103,21 +103,17 @@
   padding: 8px 12px;
 }
 
-/* Right map area */
+/* Right map area — NO padding */
 .record-map .map-box{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
   border-left: 1px solid #333;
+  display: flex;
 }
 
-/* Map image — FIXED SIZE */
+/* Map image — ATTACHED to box */
 .record-map .map-box img{
-  max-width: 140px;   /* ⬅ adjust width here */
-  max-height: 120px;  /* ⬅ adjust height here */
+  height: 100%;      /* ⬅ fills box vertically */
   width: auto;
-  height: auto;
+  max-width: 150px;  /* control map width */
   object-fit: contain;
   display: block;
 }
