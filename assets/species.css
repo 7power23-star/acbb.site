@@ -95,7 +95,7 @@
   border: 1px solid #333;
   display: grid;
   grid-template-columns: 1fr auto;
-  min-height: 130px;
+  min-height: 110px;
 }
 
 /* Left text area */
@@ -113,7 +113,7 @@
 .record-map .map-box img{
   height: 100%;      /* ⬅ fills box vertically */
   width: auto;
-  max-width: 150px;  /* control map width */
+  max-width: 120px;  /* control map width */
   object-fit: contain;
   display: block;
 }
