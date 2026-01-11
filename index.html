@@ -4,7 +4,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/home/favi.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/home/favi.png">
   <meta charset="utf-8" />
-  <meta name="viewport" ccontent="width=1000">
+  <meta name="viewport" content="width=1000">
   <title>A Checklist of Butterflies of Bangladesh</title>
   <link rel="stylesheet" href="assets/site.css">
   <style>
@@ -24,7 +24,6 @@
       font-family:"Georgia","Times New Roman",serif;
       background:var(--bg);
       color:#fff;
-      /* Prevents unwanted scrolling while keeping layout intact */
       overflow-x: hidden; 
     }
 
@@ -63,29 +62,32 @@
       padding: 22px 24px;
     }
 
+    /* UPDATED: Flex-wrap allows 2 rows of 3 photos */
     .home-photos{
       height: 100%;
       display:flex;
       justify-content:center;
       align-items:flex-start;
-      gap: 26px;
-      padding-top: 38px;
-      flex-wrap: nowrap; /* Forces photos to stay side-by-side */
+      gap: 15px;
+      padding-top: 30px;
+      flex-wrap: wrap; 
     }
 
+    /* UPDATED: Adjusted width to fit 3-across in 1000px layout */
     .photo-card{
-      width: 360px;
+      width: 250px;
       text-align:center;
       color: var(--text);
       font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
       font-size: 11px;
       font-weight: 600;
+      margin-bottom: 20px;
     }
 
     .photo-card img{
       width: 100%;
       height: auto;
-      max-height: 240px;
+      max-height: 180px;
       object-fit: cover;
       border: 1px solid var(--border);
       background:#fff;
@@ -153,32 +155,27 @@
 
     /* =========================================================
        MOBILE RESPONSIVE: PROPORTIONAL SCALING
-       Keeps layout identical but fits to screen width.
     ========================================================== */
-    @media (max-width: 950px){
+    @media (max-width: 1024px){
       .page-scale {
-        /* This scales the whole design to 80% to fit tablets */
-        zoom: 0.8; 
-        -moz-transform: scale(0.8);
+        zoom: 0.95; 
+        -moz-transform: scale(0.95);
         -moz-transform-origin: 0 0;
       }
     }
 
     @media (max-width: 760px){
       .page-scale {
-        /* This scales the whole design to fit mobile phones */
-        zoom: 0.55; 
-        -moz-transform: scale(0.55);
+        zoom: 0.85; 
+        -moz-transform: scale(0.85);
         -moz-transform-origin: 0 0;
       }
-      body { overflow-x: auto; } /* Allows slight scrolling if content is wider than 0.55 scale */
     }
 
     @media (max-width: 480px){
       .page-scale {
-        /* Ultra-mobile scaling */
-        zoom: 0.4; 
-        -moz-transform: scale(0.4);
+        zoom: 0.70; 
+        -moz-transform: scale(0.70);
         -moz-transform-origin: 0 0;
       }
     }
@@ -204,6 +201,26 @@
           <div class="photo-card">
             <img src="images/home/002.png" alt="Common Pierrot Mating">
             <div class="photo-cap">Common Pierrot Mating</div>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/home/003.jpg" alt="Species 3">
+            <div class="photo-cap">Species 3 Title</div>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/home/004.jpg" alt="Species 4">
+            <div class="photo-cap">Species 4 Title</div>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/home/005.jpg" alt="Species 5">
+            <div class="photo-cap">Species 5 Title</div>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/home/006.jpg" alt="Species 6">
+            <div class="photo-cap">Species 6 Title</div>
           </div>
         </div>
       </section>
