@@ -24,3 +24,29 @@
 /* 8) Media queries */
 @import url("./responsive.css");
 @import url("./species.css");
+/* Universal Scaling for Mobile - Design Remains Unchanged */
+@media (max-width: 1024px) {
+    html, body {
+        /* Forces the browser to maintain desktop width */
+        min-width: 1000px; 
+        /* Proportionally shrinks everything */
+        zoom: 0.75; 
+        -moz-transform: scale(0.75);
+        -moz-transform-origin: 0 0;
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 768px) {
+    html, body {
+        zoom: 0.60; 
+        -moz-transform: scale(0.60);
+    }
+}
+
+@media (max-width: 480px) {
+    html, body {
+        zoom: 0.42; 
+        -moz-transform: scale(0.42);
+    }
+}
