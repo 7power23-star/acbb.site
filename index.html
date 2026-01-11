@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
- <link rel="icon" type="image/png" sizes="32x32" href="images/home/favi.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/home/favi.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/home/favi.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/home/favi.png">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>A Checklist of Butterflies of Bangladesh</title>
- <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/site.css">
   <style>
     :root{
       --bg:#6f0d0d;          /* maroon */
@@ -24,9 +24,11 @@
       font-family:"Georgia","Times New Roman",serif;
       background:var(--bg);
       color:#fff;
+      /* Prevents unwanted scrolling while keeping layout intact */
+      overflow-x: hidden; 
     }
 
-    /* ===== HEADER BAR (thin) ===== */
+    /* ===== HEADER BAR ===== */
     .topbar{
       padding: 14px 40px 10px;
       text-align:center;
@@ -51,18 +53,16 @@
     .main{
       display:flex;
       align-items:stretch;
-      min-height: calc(100vh - 112px); /* header + footer space */
+      min-height: calc(100vh - 112px); 
       border-bottom: 2px solid #000;
     }
 
-    /* White content */
     .content{
       flex:1;
       background: var(--white);
       padding: 22px 24px;
     }
 
-    /* Two photos centered */
     .home-photos{
       height: 100%;
       display:flex;
@@ -70,7 +70,7 @@
       align-items:flex-start;
       gap: 26px;
       padding-top: 38px;
-      flex-wrap: nowrap; /* keep in one row like screenshot */
+      flex-wrap: nowrap; /* Forces photos to stay side-by-side */
     }
 
     .photo-card{
@@ -93,11 +93,9 @@
       margin: 0 auto;
     }
 
-    .photo-cap{
-      margin-top: 6px;
-    }
+    .photo-cap{ margin-top: 6px; }
 
-    /* Right maroon sidebar */
+    /* Right sidebar index */
     .sidebar{
       width: 140px;
       padding: 30px 4px;
@@ -107,7 +105,7 @@
 
     .sidebar h2{
       margin: 34px 0 14px 12px;
-      text-align:left;              /* aligned with links */
+      text-align:left;
       font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
       letter-spacing: 3px;
       font-size: 16px;
@@ -134,17 +132,11 @@
     .nav li::before{
       content:"·";
       font-size:16px;
-      line-height:1;
       opacity:.95;
     }
 
-    .nav a{
-      color:#fff;
-      text-decoration:none;
-    }
-    .nav a:hover{
-      text-decoration:underline;
-    }
+    .nav a{ color:#fff; text-decoration:none; }
+    .nav a:hover{ text-decoration:underline; }
 
     /* ===== FOOTER BAR ===== */
     .footer{
@@ -157,59 +149,43 @@
       color: var(--cream);
     }
 
-    .footer .line1{
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-    .footer .line2{
-      font-size: 14px;
-    }
+    .footer .line1, .footer .line2{ font-size: 14px; }
 
     /* =========================================================
-       MOBILE: DO NOT CHANGE LAYOUT (NO stacking, NO fragmenting)
-       Just shrink everything and allow horizontal scroll if needed
+       MOBILE RESPONSIVE: PROPORTIONAL SCALING
+       Keeps layout identical but fits to screen width.
     ========================================================== */
-    @media (max-width: 900px){
-      body{
-        overflow-x:auto; /* keep design, allow scroll */
-      }
-
-      /* scale everything down */
-      .page-scale{
-        transform: scale(0.85);
-        transform-origin: top left;
-        width: calc(100% / 0.85);
+    @media (max-width: 950px){
+      .page-scale {
+        /* This scales the whole design to 80% to fit tablets */
+        zoom: 0.8; 
+        -moz-transform: scale(0.8);
+        -moz-transform-origin: 0 0;
       }
     }
 
-    @media (max-width: 600px){
-      body{
-        overflow-x:auto;
+    @media (max-width: 760px){
+      .page-scale {
+        /* This scales the whole design to fit mobile phones */
+        zoom: 0.55; 
+        -moz-transform: scale(0.55);
+        -moz-transform-origin: 0 0;
       }
-
-      .page-scale{
-        transform: scale(0.75);
-        transform-origin: top left;
-        width: calc(100% / 0.75);
-      }
+      body { overflow-x: auto; } /* Allows slight scrolling if content is wider than 0.55 scale */
     }
 
-    @media (max-width: 420px){
-      body{
-        overflow-x:auto;
-      }
-
-      .page-scale{
-        transform: scale(0.68);
-        transform-origin: top left;
-        width: calc(100% / 0.68);
+    @media (max-width: 480px){
+      .page-scale {
+        /* Ultra-mobile scaling */
+        zoom: 0.4; 
+        -moz-transform: scale(0.4);
+        -moz-transform-origin: 0 0;
       }
     }
   </style>
 </head>
 
 <body>
-  <!-- Wrap whole page in scale container -->
   <div class="page-scale">
 
     <header class="topbar">
@@ -218,7 +194,6 @@
     </header>
 
     <div class="main">
-      <!-- White middle content -->
       <section class="content">
         <div class="home-photos">
           <div class="photo-card">
@@ -233,7 +208,6 @@
         </div>
       </section>
 
-      <!-- Right sidebar index -->
       <aside class="sidebar">
         <h2>INDEX</h2>
         <ul class="nav">
