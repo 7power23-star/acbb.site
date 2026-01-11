@@ -24,10 +24,12 @@
 /* 8) Media queries */
 @import url("./responsive.css");
 @import url("./species.css");
-/* Universal Scaling - Shrinks desktop layout to fit mobile screens */
+/* Universal Scaling - Desktop layout reduced for mobile visibility */
 @media (max-width: 1024px) {
     html, body {
+        /* Forces desktop layout integrity */
         min-width: 1000px; 
+        /* Keeps layout large on tablets */
         zoom: 1; 
         -moz-transform: scale(1);
         -moz-transform-origin: 0 0;
@@ -37,6 +39,7 @@
 
 @media (max-width: 768px) {
     html, body {
+        /* Standard mobile size for balanced readability */
         zoom: 0.90; 
         -moz-transform: scale(0.90);
     }
@@ -44,6 +47,7 @@
 
 @media (max-width: 480px) {
     html, body {
+        /* Increased to 0.75 so text and lists are clearly visible */
         zoom: 0.80; 
         -moz-transform: scale(0.80);
     }
