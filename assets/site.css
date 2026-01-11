@@ -24,12 +24,10 @@
 /* 8) Media queries */
 @import url("./responsive.css");
 @import url("./species.css");
-/* Universal Scaling for Mobile - Design Remains Unchanged */
+/* Universal Scaling - Shrinks desktop layout to fit mobile screens */
 @media (max-width: 1024px) {
     html, body {
-        /* Forces the browser to maintain desktop width */
         min-width: 1000px; 
-        /* Proportionally shrinks everything */
         zoom: 0.75; 
         -moz-transform: scale(0.75);
         -moz-transform-origin: 0 0;
